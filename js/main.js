@@ -351,7 +351,7 @@ jQuery(document).ready(function ($) {
 
 jQuery(document).ready(function() {
 	$('#contact-form_input').click(function(){
-		fetch('https://nohau.bitrix24.ru/')
+		fetch('https://nohau.bitrix24.ru/bitrix/services/main/ajax.php?action=crm.site.form.get')
 			.then((response) => {
 				$(this).hide();
 				document.querySelector('.b24-widget-button-icon-container').click();
@@ -364,9 +364,27 @@ jQuery(document).ready(function() {
 							$(livechat_textarea).prependTo('.wrap-textarea')
 							$(livechat_textarea).css('display', 'block')
 							if(window.innerWidth < 768){
-								$(livechat_textarea).css('height', 180)                              // доделать для мобильных окно как в whatsapp
-								$('.contact-form').addClass('active')
-								// $('body').css('overflow', 'hidden')
+								function mobileView () {
+									$('.contact-form').addClass('active-chat')
+									$('body').css('overflow', 'hidden')
+									$('.mobile-menu-butt, .header-fixed').addClass('display-none')
+									$('.contact-form .bx-livechat-wrapper').css('margin-top', '38px')
+									const closeBtn = $('<span class="close-chat"></span>')
+									$('.active-chat').prepend(closeBtn)
+
+									$('.close-chat').click(() => {
+										$('.contact-form').removeClass('active-chat')
+										$('body').css('overflow', '')
+										$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
+										$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
+										closeBtn.remove()
+									})
+								}
+								mobileView()
+								$('.bx-livechat-textarea').click(() => {
+									mobileView()
+								})
+
 							}
 							$('.bx-im-textarea-input').focus()
 							clearInterval(load)
