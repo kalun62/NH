@@ -33,64 +33,17 @@ const header = document.querySelector('.header'),
 		}
 	}
 
-jQuery(document).ready(function ($) {
-// скролы к якорям	
-
-	let $page = $('html, body');
-	$('a[href*="#"]').click(function () {
-	$page.animate({
-		scrollTop: $($.attr(this, 'href')).offset().top - 110
-	}, 500);
-	history.pushState('data to be passed', 'Title of the page', $.attr(this, 'href'));
-	history.replaceState('data to be passed', 'Title of the page', '.');
-	return false;
-	});
-
-	// клик по логотипу
-
-	$('.logo-header').click(function(){
-		$('html, body').animate({
-			scrollTop: 0
-		}, 500);
-	})
-// анимация фона
-
-	let bg = document.querySelector('.main-wrap-bg');
-	let mainWrap = document.querySelector('.main-wrap');
-	
-	$(mainWrap).mousemove(function(e) {
-		if (window.innerWidth > 1000) {
-		let x = e.clientX / window.innerWidth;
-		let y = e.clientY / window.innerHeight;
-		bg.style.transform = 'translate(-' + x * 100 + 'px, -' + y * 100 + 'px)';
-		}
-	}); 
-
-// анимация стрелок вниз
-  let arr_small = document.querySelector('.arrow-down').children[0]
-  let arr_big = document.querySelector('.arrow-down').children[1]
-
-	setInterval(() => { 
-		$(arr_small).animate({opacity: '.1'},1000);
-		$(arr_big).animate({opacity: '.1'},1000);
-		}, 4000);
-	setInterval(() => { 
-		$(arr_small).animate({opacity: '.5'},200);
-		$(arr_big).delay(200).animate({opacity: '1'},200);
-		}, 4000);
-});
-
 // волны
+let openChat = false
 
-(function(){
+function waveAnimation (){
 	"use strict";
 	var cvs,ctx;
 	var nodes = 3;
 	var waves = [];
 	var waveHeight = 350;
 	var colours = ["rgb(48,52,55)","rgb(89,97,100)","rgb(89,97,100)","rgb(147,152,156)"];
-	
-  // Initiator function
+
 	function init() {
 		cvs = document.getElementById("canvas");
 		ctx = cvs.getContext("2d");
@@ -106,7 +59,7 @@ jQuery(document).ready(function ($) {
 		ctx.fillStyle = fill;
 		ctx.globalCompositeOperation = "source-over";
 		ctx.fillRect(0,0,cvs.width,cvs.height);
-    ctx.clearRect(0,0,cvs.width,cvs.height);
+    	ctx.clearRect(0,0,cvs.width,cvs.height);
 		ctx.globalCompositeOperation = "screen";
 		for (var i = 0; i < waves.length; i++) {
 			for (var j = 0; j < waves[i].nodes.length; j++) {
@@ -115,8 +68,10 @@ jQuery(document).ready(function ($) {
 			drawWave(waves[i]);
 		}
 		ctx.fillStyle = fill;
-    
-    requestAnimationFrame(update);
+
+		if(!openChat){
+			requestAnimationFrame(update)
+		}
 	}
 
 	function wave(colour, lambda, nodes) {
@@ -163,28 +118,6 @@ jQuery(document).ready(function ($) {
 		ctx.fill();
 	}
 
-	function drawNodes (array) {
-		ctx.strokeStyle = "#888";
-    
-		for (var i = 0; i < array.length; i++) {
-			ctx.beginPath();
-			ctx.arc(array[i][0],array[i][1],4,0,2*Math.PI);
-			ctx.closePath();
-			ctx.stroke();
-		}
-	}
-
-	function drawLine (array) {
-		ctx.strokeStyle = "#888";
-    
-		for (var i = 0; i < array.length; i++) {
-			if (array[i+1]) {
-				ctx.lineTo(array[i+1][0],array[i+1][1]);
-			}
-		}
-		ctx.stroke();
-	}
-
 	function resizeCanvas(canvas,width,height) {
 		if (width && height) {
 			canvas.width = width;
@@ -200,18 +133,66 @@ jQuery(document).ready(function ($) {
 			canvas.height = waveHeight;
 		}
 	}
-	document.addEventListener("DOMContentLoaded",init,false);
-})();
 
-//слайдер 
+	init()
+}
+
+waveAnimation()
+
+
 
 jQuery(document).ready(function ($) {
+	// скролы к якорям	
+
+	let $page = $('html, body');
+	$('a[href*="#"]').click(function () {
+	$page.animate({
+		scrollTop: $($.attr(this, 'href')).offset().top - 110
+	}, 500);
+	history.pushState('data to be passed', 'Title of the page', $.attr(this, 'href'));
+	history.replaceState('data to be passed', 'Title of the page', '.');
+	return false;
+	});
+
+	// клик по логотипу
+
+	$('.logo-header').click(function(){
+		$('html, body').animate({
+			scrollTop: 0
+		}, 500);
+	})
+
+	// анимация фона
+
+	let bg = document.querySelector('.main-wrap-bg');
+	let mainWrap = document.querySelector('.main-wrap');
 	
+	$(mainWrap).mousemove(function(e) {
+		if (window.innerWidth > 1000) {
+		let x = e.clientX / window.innerWidth;
+		let y = e.clientY / window.innerHeight;
+		bg.style.transform = 'translate(-' + x * 100 + 'px, -' + y * 100 + 'px)';
+		}
+	}); 
+
+	// анимация стрелок вниз
+	let arr_small = document.querySelector('.arrow-down').children[0]
+	let arr_big = document.querySelector('.arrow-down').children[1]
+
+	setInterval(() => { 
+		$(arr_small).animate({opacity: '.1'},1000);
+		$(arr_big).animate({opacity: '.1'},1000);
+		}, 4000);
+	setInterval(() => { 
+		$(arr_small).animate({opacity: '.5'},200);
+		$(arr_big).delay(200).animate({opacity: '1'},200);
+		}, 4000);
+
+	//слайдер 
 	const activeSlide = document.querySelectorAll('#programm.slide')
 	$(activeSlide).clone().appendTo($('.slider-track'))
 	
-
-// меню слайдера
+	// меню слайдера
 
 	$(".button").on("click", function(e) {
 		e.preventDefault();
@@ -220,7 +201,7 @@ jQuery(document).ready(function ($) {
             .siblings()
             .removeClass("active")
 
-// вставка слайдов и анимация
+	// вставка слайдов и анимация
 
 	let slides = document.querySelectorAll('.slide')
 	let track_up = document.createElement ('div')
@@ -253,27 +234,27 @@ jQuery(document).ready(function ($) {
 		}, 1000)
 		
 		  
-// disable кнопок слайдера по клику меню
+	// disable кнопок слайдера по клику меню
 
 	let sliderTrackWidth = document.querySelector('.slider-track').offsetWidth
 	let sliderListWidth = document.querySelector('.slider-list').offsetWidth
 	let widthSlider = sliderTrackWidth - sliderListWidth
 
-		  $(sliderList).on('scroll', () => {
+		$(sliderList).on('scroll', () => {
 				if (widthSlider === Math.round(sliderList.scrollLeft)) {
 					$('#right').addClass('disable')
 				}else{
 					$('#right').removeClass('disable')
 				}
 			})
-})
+		})
 
-// disable кнопок слайдера при загрузке
+	// disable кнопок слайдера при загрузке
 
-let sliderTrackWidth = document.querySelector('.slider-track').offsetWidth
-let sliderList = document.querySelector('.slider-list')
-let sliderListWidth = document.querySelector('.slider-list').offsetWidth
-let widthSlider = sliderTrackWidth - sliderListWidth
+	let sliderTrackWidth = document.querySelector('.slider-track').offsetWidth
+	let sliderList = document.querySelector('.slider-list')
+	let sliderListWidth = document.querySelector('.slider-list').offsetWidth
+	let widthSlider = sliderTrackWidth - sliderListWidth
 	
 	$(sliderList).on('scroll', () => {
 		if (sliderList.scrollLeft === 0) {
@@ -289,7 +270,7 @@ let widthSlider = sliderTrackWidth - sliderListWidth
 		}
 	})
 	
-// клик по кнопке слайдера
+	// клик по кнопке слайдера
 
   $('#right').click(function (e) {
     e.preventDefault()
@@ -314,11 +295,9 @@ let widthSlider = sliderTrackWidth - sliderListWidth
   $(window).mouseup(function () {
     $(".slider-list").off("mousemove");
   });
-})
 
-// мобильное меню
+  // мобильное меню
 
-jQuery(document).ready(function ($) {
   $('.mobile-menu-butt').click(function () {
     $('.mobile-menu-butt span').toggleClass('active');
     $('.mobile-menu').toggleClass('active');
@@ -343,17 +322,17 @@ jQuery(document).ready(function ($) {
         $('.menu-dark').removeClass('active');
         $('body').toggleClass('no-scroll')
     }
-  });
+  })
 })
-
 
 // окно обратной связи
 
-jQuery(document).ready(function() {
+jQuery(document).ready(function() {	
 	const closeBtn = $('<span class="close-chat"></span>')
 	$('.contact-form').prepend(closeBtn)
 
 	$('#contact-form_input').click(function(){
+		openChat = true
 		fetch('https://nohau.bitrix24.ru/bitrix/services/main/ajax.php?action=crm.site.form.get')
 			.then((response) => {
 				$(this).hide();
@@ -371,7 +350,7 @@ jQuery(document).ready(function() {
 							$(livechat_textarea).css('display', 'block')
 							if(window.innerWidth < 768){
 								function mobileView () {
-									$('.contact-form').addClass('active-chat')
+									$('.contact-form').addClass('bx active-chat')
 									$('body').css('overflow', 'hidden')
 									$('.mobile-menu-butt, .header-fixed').addClass('display-none')
 									
@@ -381,20 +360,20 @@ jQuery(document).ready(function() {
 
 									$('.bx-im-textarea-mobile').append($('.button-input'))
 									$('.bx-im-textarea-mobile').append($('.volume'))
-									$('.bx-im-textarea-mobile').append($('.bx-im-textarea-app-file'))
-									
-									
+									setTimeout(() => {
+										$('.bx-im-textarea-mobile').append($('.bx-im-textarea-app-file'))
+									},200)
 								}
 
 								$('.close-chat').click(() => {
+									openChat = false
+									waveAnimation()
 									$('.contact-form').removeClass('active-chat')
 									$('body').css('overflow', '')
 									$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
 									$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
 									closeBtn.css('display', 'none')
-									// setTimeout(() => {
 										$('.bx-livechat-wrapper').attr('style', 'height:78% !important');
-									// }, 500);
 								})
 
 								mobileView()
@@ -403,6 +382,7 @@ jQuery(document).ready(function() {
 								}, 500);
 
 								$('.bx-livechat-textarea').click(() => {
+									openChat = true
 									mobileView()
 									setTimeout(() => {
 										resizeChat()
@@ -415,7 +395,7 @@ jQuery(document).ready(function() {
 								})
 
 								$('.active-chat textarea').on('input', function(){
-									this.style.height = 42 + 'px' 
+									this.style.height = 30 + 'px' 
 									this.style.height = this.scrollHeight + 'px'; 
 									resizeChat()
 								})
@@ -426,7 +406,7 @@ jQuery(document).ready(function() {
 						$('.active-chat').click(() => {
 							setTimeout(() => {
 								resizeChat()
-							}, 500);												// доделать resize после отправки
+							}, 500);												
 						})
 					},100)	
 
@@ -440,7 +420,6 @@ jQuery(document).ready(function() {
 	function resizeChat(){
 		let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - 60 	
 			$('.active-chat .bx-livechat-wrapper').attr('style', 'height:'+ heightChat + 'px !important');
-			console.log($('.contact-form').height());
 	}
 
 	$('.button-input').click(function(e){
@@ -453,7 +432,6 @@ jQuery(document).ready(function() {
 			$(livechat).css('display', 'block')
 			$(livechat).prependTo('.contact-form')
 			$('.bx-livechat-textarea').css('height', 150)
-	
 	})
 
 	let load_mess = setInterval(function(){
@@ -469,7 +447,6 @@ jQuery(document).ready(function() {
 					$(livechat_textarea).prependTo('.wrap-textarea')
 					$(livechat_textarea).css('display', 'block')
 					$('.bx-livechat-textarea').css('height', 150)
-					// $('.bx-im-textarea-app-file').css('bottom', -50)
 
 					$('#contact-form_input').hide()
 					
