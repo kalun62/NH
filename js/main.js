@@ -338,13 +338,13 @@ jQuery(document).ready(function() {
 				$(this).hide();
 				document.querySelector('.b24-widget-button-icon-container').click();
 				let livechat = document.querySelector('.bx-livechat-wrapper')
-				
+				$(livechat).css('display', 'none')
 				let load = setInterval(function(){
 				let load_win = document.querySelector('.bx-livechat-loading-window')
 						if($(load_win).length === 0){
 							let livechat_textarea = document.querySelector('.bx-livechat-textarea')
 							let livechat = document.querySelector('.bx-livechat-wrapper')
-							$(livechat).addClass('blok')
+							// $(livechat).addClass('blok')
 							$(livechat).prependTo('.contact-form')
 							$(livechat_textarea).prependTo('.wrap-textarea')
 							$(livechat_textarea).css('display', 'block')
@@ -360,6 +360,8 @@ jQuery(document).ready(function() {
 
 									$('.bx-im-textarea-mobile').append($('.button-input'))
 									$('.bx-im-textarea-mobile').append($('.volume'))
+									$('.bx-im-textarea-mobile').append($('.messengers_wrap'))
+
 									setTimeout(() => {
 										$('.bx-im-textarea-mobile').append($('.bx-im-textarea-app-file'))
 									},200)
