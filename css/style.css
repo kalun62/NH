@@ -1306,11 +1306,11 @@ b {
         height: 70px;
     }
     .active-chat .bx-livechat-wrapper{
-        margin-top: 38px;
         display: block !important;
     }
     .contact-form .bx-livechat-wrapper{
         display: block !important;
+        height: 100% !important;
     }
     .active-chat .wrap-textarea{
         position: absolute;
@@ -1330,8 +1330,8 @@ b {
         left: unset;
         top: calc(50% - 20px);
     }
-    .contact-form .bx-livechat-wrapper{
-        height: 80% !important;
+    .active-chat .chat-wrapper{
+        margin-top: 38px;
     }
     .contact-form.active-chat .bx-livechat-wrapper{
         height: 100% !important;
@@ -1350,7 +1350,7 @@ b {
         fill: #403c3c;
     }
     .contact-form.bx {
-        height: 335px;
+        padding: 1px 0 20px 0;
     }
     .contact-form.bx .volume{
         right: 55px;

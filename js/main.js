@@ -373,7 +373,7 @@ jQuery(document).ready(function() {
 									$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
 									$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
 									closeBtn.css('display', 'none')
-										$('.bx-livechat-wrapper').attr('style', 'height:78% !important');
+										$('.chat-wrapper').attr('style', 'height:200px !important');
 								})
 
 								mobileView()
@@ -419,19 +419,13 @@ jQuery(document).ready(function() {
 
 	function resizeChat(){
 		let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 60 	
-			$('.active-chat .chat-wrapper').attr('style', 'height:'+ heightChat + 'px !important');
+			$('.active-chat .chat-wrapper').attr('style', 'height:'+ heightChat + 'px');
 	}
 
 	$('.button-input').click(function(e){
 		e.preventDefault()
 		document.querySelector('.bx-im-textarea-send-button').click();
 		$('.active-chat textarea').height(30)
-		$('.contact-form').addClass('bx')
-		let livechat = document.querySelector('.bx-livechat-wrapper')
-			
-			$(livechat).css('display', 'block')
-			$(livechat).prependTo('.contact-form')
-			$('.bx-livechat-textarea').css('height', 150)
 	})
 
 	let load_mess = setInterval(function(){
