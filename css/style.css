@@ -100,7 +100,7 @@ b {
     height: 110%;
     transition: all 0.1s ease;  
     z-index: 1;
-    background-image: url(/image/main-bg.png);
+    background-image: url(../image/main-bg.png);
     background-color: #1b1f22;
     background-repeat: no-repeat;
     background-size: cover;

@@ -425,7 +425,7 @@ jQuery(document).ready(function() {
 	$('.button-input').click(function(e){
 		e.preventDefault()
 		document.querySelector('.bx-im-textarea-send-button').click();
-		$('.active-chat textarea').height(42)
+		$('.active-chat textarea').height(30)
 		$('.contact-form').addClass('bx')
 		let livechat = document.querySelector('.bx-livechat-wrapper')
 			
