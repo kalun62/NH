@@ -354,9 +354,6 @@ b {
     left: 25%;
     bottom: -52px;
 }
-/* .contact-form .bx-im-textarea-app-file:hover{	
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath  d='M1.816 15.556v.002c0 1.502.584 2.912 1.646 3.972s2.472 1.647 3.974 1.647a5.58 5.58 0 0 0 3.972-1.645l9.547-9.548c.769-.768 1.147-1.767 1.058-2.817-.079-.968-.548-1.927-1.319-2.698-1.594-1.592-4.068-1.711-5.517-.262l-7.916 7.915c-.881.881-.792 2.25.214 3.261.959.958 2.423 1.053 3.263.215l5.511-5.512c.28-.28.267-.722.053-.936l-.244-.244c-.191-.191-.567-.349-.957.04l-5.506 5.506c-.18.18-.635.127-.976-.214-.098-.097-.576-.613-.213-.973l7.915-7.917c.818-.817 2.267-.699 3.23.262.5.501.802 1.1.849 1.685.051.573-.156 1.111-.589 1.543l-9.547 9.549a3.97 3.97 0 0 1-2.829 1.171 3.975 3.975 0 0 1-2.83-1.173 3.973 3.973 0 0 1-1.172-2.828c0-1.071.415-2.076 1.172-2.83l7.209-7.211c.157-.157.264-.579.028-.814L11.5 4.36a.572.572 0 0 0-.834.018l-7.205 7.207a5.577 5.577 0 0 0-1.645 3.971z' fill='%23ffb627'/%3E%3C/svg%3E") !important;
-} */
 .contact-form .bx-im-textarea-box {
     padding: 0 0 0 16px;
 }
@@ -1264,13 +1261,20 @@ b {
     }
     .active-chat{
         width: 100%;
-        height: fit-content;
+        height: 100% !important;
         max-height: 100vh;
         position: fixed;
         left: 0;
         top: -83px;
         z-index: 100;
         transition: .3s;
+        padding: 0 !important;
+    }
+    .active-chat-button svg{
+        margin-left: 4px;
+    }
+    .contact-form .close-chat{
+        display: none;
     }
     .close-chat{
         position: absolute;
@@ -1283,6 +1287,7 @@ b {
         cursor: pointer;
     }
     .close-chat::after, .close-chat::before{
+        display: none;
         position: absolute;
         top: 8px;
         content: '';
@@ -1296,6 +1301,74 @@ b {
     }
     .close-chat::before{
         transform: rotate(-45deg);
+    }
+    .wrap-textarea{
+        position: relative;
+        height: 70px;
+    }
+    .active-chat .bx-livechat-wrapper{
+        margin-top: 38px;
+    }
+    .active-chat .wrap-textarea{
+        position: absolute;
+        height: fit-content;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+    }
+    .contact-form .bx-livechat-textarea{
+        height: 100% !important;
+    }
+    .button-input.active-chat-button{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        right: 10px;
+        left: unset;
+        top: calc(50% - 25px);
+    }
+    .contact-form .bx-livechat-wrapper{
+        height: 80% !important;
+    }
+    .contact-form.active-chat .bx-livechat-wrapper{
+        height: 66% !important;
+    }
+    .active-chat .volume{
+        right: unset;
+        bottom: unset;
+        right: 55px;
+        bottom: unset;
+        top: calc(50% - 19px);
+    }
+    .contact-form.bx {
+        height: 335px;
+    }
+    .contact-form.bx .volume{
+        right: 55px;
+        top: calc(50% - 21px);
+    }
+    .active-chat .bx-im-textarea-app-file{
+        left: 10px;
+        right: 70px;
+        top: calc(50% - 7.5px);   
+    }
+    .contact-form .bx-im-textarea-app-file{
+        left: 5px;
+        top: calc(50% - 12px);  
+    }
+    .active-chat .bx-im-textarea-app-box{
+        display: none;
+    }
+    .bx-im-textarea-input{
+        overflow: hidden;
+    }
+    .active-chat .bx-im-textarea-input{
+        line-height: 1.5em;
+        max-height: 120px !important;
+    }
+    .contact-form .bx-im-textarea-box {
+        padding: 5px 20px 15px 36px;
+        width: 80%;
     }
     .messengers_wrap.active::before{
         left: 35px;
@@ -1477,10 +1550,10 @@ b {
     .volume{
         right: 10px;
     }
-    .contact-form .bx-im-textarea-app-file{
+    /* .contact-form .bx-im-textarea-app-file{
         left: 7px;
         bottom: -47px;
-    }
+    } */
     .about h2{
         font-size: 20px;
         line-height: 23px;

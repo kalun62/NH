@@ -350,17 +350,23 @@ jQuery(document).ready(function ($) {
 // окно обратной связи
 
 jQuery(document).ready(function() {
+	const closeBtn = $('<span class="close-chat"></span>')
+	$('.contact-form').prepend(closeBtn)
+
 	$('#contact-form_input').click(function(){
 		fetch('https://nohau.bitrix24.ru/bitrix/services/main/ajax.php?action=crm.site.form.get')
 			.then((response) => {
 				$(this).hide();
 				document.querySelector('.b24-widget-button-icon-container').click();
 				let livechat = document.querySelector('.bx-livechat-wrapper')
-				$(livechat).css('display', 'none')
+				
 				let load = setInterval(function(){
 				let load_win = document.querySelector('.bx-livechat-loading-window')
 						if($(load_win).length === 0){
 							let livechat_textarea = document.querySelector('.bx-livechat-textarea')
+							let livechat = document.querySelector('.bx-livechat-wrapper')
+							$(livechat).addClass('blok')
+							$(livechat).prependTo('.contact-form')
 							$(livechat_textarea).prependTo('.wrap-textarea')
 							$(livechat_textarea).css('display', 'block')
 							if(window.innerWidth < 768){
@@ -368,28 +374,61 @@ jQuery(document).ready(function() {
 									$('.contact-form').addClass('active-chat')
 									$('body').css('overflow', 'hidden')
 									$('.mobile-menu-butt, .header-fixed').addClass('display-none')
-									$('.contact-form .bx-livechat-wrapper').css('margin-top', '38px')
-									const closeBtn = $('<span class="close-chat"></span>')
-									$('.active-chat').prepend(closeBtn)
+									
+									closeBtn.css('display', 'block')
+									$('.button-input').addClass('active-chat-button').text('')
+									$('.button-input').append($('<svg viewBox="0 0 24 24" width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>'))
 
-									$('.close-chat').click(() => {
-										$('.contact-form').removeClass('active-chat')
-										$('body').css('overflow', '')
-										$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
-										$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
-										closeBtn.remove()
-									})
+									$('.bx-im-textarea-mobile').append($('.button-input'))
+									$('.bx-im-textarea-mobile').append($('.volume'))
+									$('.bx-im-textarea-mobile').append($('.bx-im-textarea-app-file'))
+									
+									
 								}
-								mobileView()
-								$('.bx-livechat-textarea').click(() => {
-									mobileView()
+
+								$('.close-chat').click(() => {
+									$('.contact-form').removeClass('active-chat')
+									$('body').css('overflow', '')
+									$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
+									$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
+									closeBtn.css('display', 'none')
+									// setTimeout(() => {
+										$('.bx-livechat-wrapper').attr('style', 'height:78% !important');
+									// }, 500);
 								})
 
+								mobileView()
+								setTimeout(() => {
+									resizeChat()
+								}, 500);
+
+								$('.bx-livechat-textarea').click(() => {
+									mobileView()
+									setTimeout(() => {
+										resizeChat()
+									}, 500);
+								})
+								$('.bx-livechat-wrapper').click(() => {
+									setTimeout(() => {
+										resizeChat()
+									}, 500);
+								})
+
+								$('.active-chat textarea').on('input', function(){
+									this.style.height = 42 + 'px' 
+									this.style.height = this.scrollHeight + 'px'; 
+									resizeChat()
+								})
 							}
 							$('.bx-im-textarea-input').focus()
 							clearInterval(load)
 						}
-						},100)	
+						$('.active-chat').click(() => {
+							setTimeout(() => {
+								resizeChat()
+							}, 500);												// доделать resize после отправки
+						})
+					},100)	
 
 				if(window.innerWidth < 1024){
 					$('body').removeClass('bx-livechat-mobile-state')
@@ -398,9 +437,16 @@ jQuery(document).ready(function() {
 			})
 	})
 
+	function resizeChat(){
+		let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - 60 	
+			$('.active-chat .bx-livechat-wrapper').attr('style', 'height:'+ heightChat + 'px !important');
+			console.log($('.contact-form').height());
+	}
+
 	$('.button-input').click(function(e){
 		e.preventDefault()
 		document.querySelector('.bx-im-textarea-send-button').click();
+		$('.active-chat textarea').height(42)
 		$('.contact-form').addClass('bx')
 		let livechat = document.querySelector('.bx-livechat-wrapper')
 			
@@ -423,7 +469,7 @@ jQuery(document).ready(function() {
 					$(livechat_textarea).prependTo('.wrap-textarea')
 					$(livechat_textarea).css('display', 'block')
 					$('.bx-livechat-textarea').css('height', 150)
-					$('.bx-im-textarea-app-file').css('bottom', -50)
+					// $('.bx-im-textarea-app-file').css('bottom', -50)
 
 					$('#contact-form_input').hide()
 					
