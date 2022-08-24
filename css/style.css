@@ -1334,7 +1334,7 @@ b {
         height: 80% !important;
     }
     .contact-form.active-chat .bx-livechat-wrapper{
-        height: 66% !important;
+        height: 100% !important;
     }
     .active-chat .volume{
         right: unset;

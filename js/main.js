@@ -344,8 +344,7 @@ jQuery(document).ready(function() {
 						if($(load_win).length === 0){
 							let livechat_textarea = document.querySelector('.bx-livechat-textarea')
 							let livechat = document.querySelector('.bx-livechat-wrapper')
-							// $(livechat).addClass('blok')
-							$(livechat).prependTo('.contact-form')
+							$(livechat).prependTo('.chat-wrapper')
 							$(livechat_textarea).prependTo('.wrap-textarea')
 							$(livechat_textarea).css('display', 'block')
 							if(window.innerWidth < 768){
@@ -420,7 +419,7 @@ jQuery(document).ready(function() {
 
 	function resizeChat(){
 		let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 60 	
-			$('.active-chat .bx-livechat-wrapper').attr('style', 'height:'+ heightChat + 'px !important');
+			$('.active-chat .chat-wrapper').attr('style', 'height:'+ heightChat + 'px !important');
 	}
 
 	$('.button-input').click(function(e){
@@ -440,7 +439,7 @@ jQuery(document).ready(function() {
 				if($(livechat_message).length === 1){
 					let livechat = document.querySelector('.bx-livechat-wrapper')
 					$(livechat).addClass('blok')
-					$(livechat).prependTo('.contact-form')
+					$(livechat).prependTo('.chat-wrapper')
 					
 					$('.contact-form').addClass('bx')
 
@@ -492,7 +491,7 @@ function Observer(){  // слежение за сообщениями
 					let mess_text = income_mess.querySelector('.bx-im-message-content-text').textContent
 
 						if(income_mess.classList.contains('bx-im-message-type-opponent')){
-							resizeChat()
+							
 							soundClick()
 
 							setInterval(() => {
@@ -502,13 +501,15 @@ function Observer(){  // слежение за сообщениями
 						
 						if(income_mess.classList.contains('bx-im-message-type-opponent') && mess_text.includes('https://t.me/nohau')){
 							setTimeout(()=>{
+								resizeChat()
 								document.querySelector('.messengers_wrap').classList.add('active')
 								document.querySelector('.tme').classList.add('active')
 								document.querySelector('.bx-livechat-textarea').style.marginTop = 5 + 'px'
 							},700)
 						}
 						if(income_mess.classList.contains('bx-im-message-type-opponent') && mess_text.includes('https://api.whatsapp.com/send/?phone=79891659356&text=%22%D0%AF%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0,%20%D0%B4%D0%B8%D0%B0%D0%BB%D0%BE%D0%B3%200000%22')){
-							setTimeout(()=>{	
+							setTimeout(()=>{
+								resizeChat()	
 								document.querySelector('.messengers_wrap').classList.add('active')
 								document.querySelector('.whatsapp').classList.add('active')
 								document.querySelector('.bx-livechat-textarea').style.marginTop = 5 + 'px'
