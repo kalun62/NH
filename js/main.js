@@ -360,8 +360,7 @@ jQuery(document).ready(function() {
 
 									$('.bx-im-textarea-mobile').append($('.button-input'))
 									$('.bx-im-textarea-mobile').append($('.volume'))
-									$('.bx-im-textarea-mobile').append($('.messengers_wrap'))
-
+									
 									setTimeout(() => {
 										$('.bx-im-textarea-mobile').append($('.bx-im-textarea-app-file'))
 									},200)
