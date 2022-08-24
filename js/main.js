@@ -419,7 +419,7 @@ jQuery(document).ready(function() {
 	})
 
 	function resizeChat(){
-		let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - 60 	
+		let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 60 	
 			$('.active-chat .bx-livechat-wrapper').attr('style', 'height:'+ heightChat + 'px !important');
 	}
 
@@ -492,7 +492,7 @@ function Observer(){  // слежение за сообщениями
 					let mess_text = income_mess.querySelector('.bx-im-message-content-text').textContent
 
 						if(income_mess.classList.contains('bx-im-message-type-opponent')){
-							
+							resizeChat()
 							soundClick()
 
 							setInterval(() => {
