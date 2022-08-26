@@ -393,7 +393,10 @@ jQuery(document).ready(function() {
 								$('.active-chat textarea').on('input', function(){
 									this.style.height = 30 + 'px' 
 									this.style.height = this.scrollHeight + 'px'; 
-									resizeChat()
+									setTimeout(() => {
+										resizeChat()
+									},500)
+									
 								})
 							}
 							$('.bx-im-textarea-input').focus()
