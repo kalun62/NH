@@ -69,9 +69,11 @@ function waveAnimation (){
 		}
 		ctx.fillStyle = fill;
 
-		if(!openChat){
-			requestAnimationFrame(update)
-		}
+		(window.innerWidth < 768)
+		? (!openChat)
+			? requestAnimationFrame(update)
+			: ''
+		: requestAnimationFrame(update)
 	}
 
 	function wave(colour, lambda, nodes) {
@@ -377,7 +379,9 @@ jQuery(document).ready(function() {
 								})
 
 								mobileView()
-								resizeChat()
+								setTimeout(() => {
+									resizeChat()
+								}, 500);
 
 								$('.bx-livechat-textarea').click(() => {
 									openChat = true
@@ -387,7 +391,9 @@ jQuery(document).ready(function() {
 									}, 500);
 								})
 								$('.bx-livechat-wrapper').click(() => {
-									resizeChat()
+									setTimeout(() => {
+										resizeChat()
+									}, 500);
 								})
 
 								$('.active-chat textarea').on('input', function(){
@@ -400,7 +406,9 @@ jQuery(document).ready(function() {
 							clearInterval(load)
 						}
 						$('.active-chat').click(() => {
+							setTimeout(() => {
 								resizeChat()
+							}, 500);												
 						})
 					},100)	
 
