@@ -377,9 +377,7 @@ jQuery(document).ready(function() {
 								})
 
 								mobileView()
-								setTimeout(() => {
-									resizeChat()
-								}, 500);
+								resizeChat()
 
 								$('.bx-livechat-textarea').click(() => {
 									openChat = true
@@ -389,9 +387,7 @@ jQuery(document).ready(function() {
 									}, 500);
 								})
 								$('.bx-livechat-wrapper').click(() => {
-									setTimeout(() => {
-										resizeChat()
-									}, 500);
+									resizeChat()
 								})
 
 								$('.active-chat textarea').on('input', function(){
@@ -404,9 +400,7 @@ jQuery(document).ready(function() {
 							clearInterval(load)
 						}
 						$('.active-chat').click(() => {
-							setTimeout(() => {
 								resizeChat()
-							}, 500);												
 						})
 					},100)	
 
