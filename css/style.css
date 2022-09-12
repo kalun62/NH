@@ -345,6 +345,9 @@ b {
 .bx-livechat-wrapper{
     display: none !important;
 }
+.chat-wrapper .bx-livechat-has-operator{
+    display: block !important;
+}
 .bx-im-message-box{
     text-align: left;
 }
@@ -352,7 +355,7 @@ b {
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath  d='M1.816 15.556v.002c0 1.502.584 2.912 1.646 3.972s2.472 1.647 3.974 1.647a5.58 5.58 0 0 0 3.972-1.645l9.547-9.548c.769-.768 1.147-1.767 1.058-2.817-.079-.968-.548-1.927-1.319-2.698-1.594-1.592-4.068-1.711-5.517-.262l-7.916 7.915c-.881.881-.792 2.25.214 3.261.959.958 2.423 1.053 3.263.215l5.511-5.512c.28-.28.267-.722.053-.936l-.244-.244c-.191-.191-.567-.349-.957.04l-5.506 5.506c-.18.18-.635.127-.976-.214-.098-.097-.576-.613-.213-.973l7.915-7.917c.818-.817 2.267-.699 3.23.262.5.501.802 1.1.849 1.685.051.573-.156 1.111-.589 1.543l-9.547 9.549a3.97 3.97 0 0 1-2.829 1.171 3.975 3.975 0 0 1-2.83-1.173 3.973 3.973 0 0 1-1.172-2.828c0-1.071.415-2.076 1.172-2.83l7.209-7.211c.157-.157.264-.579.028-.814L11.5 4.36a.572.572 0 0 0-.834.018l-7.205 7.207a5.577 5.577 0 0 0-1.645 3.971z' fill='white'/%3E%3C/svg%3E") !important;
     position: absolute;
     left: 25%;
-    bottom: -52px;
+    bottom: -49px;
 }
 .contact-form .bx-im-textarea-box {
     padding: 0 0 0 16px;
@@ -1284,6 +1287,7 @@ b {
         margin-left: 90%;
         height: 20px;
         cursor: pointer;
+        z-index: 202;
     }
     .close-chat::after, .close-chat::before{
         display: none;
@@ -1303,7 +1307,7 @@ b {
     }
     .wrap-textarea{
         position: relative;
-        height: 70px;
+        height: 50px;
     }
     .active-chat .bx-livechat-wrapper{
         display: block !important;
@@ -1311,13 +1315,17 @@ b {
     .contact-form .bx-livechat-wrapper{
         display: block !important;
         height: 100% !important;
+        z-index: 200;
     }
     .active-chat .wrap-textarea{
-        position: absolute;
+        /* position: absolute; */
         height: fit-content;
         bottom: 20px;
         left: 0;
         right: 0;
+    }
+    .contact-form.bx .chat-wrapper{
+        height: 200px;
     }
     .contact-form .bx-livechat-textarea{
         height: 100% !important;
@@ -1330,9 +1338,107 @@ b {
         left: unset;
         top: calc(50% - 20px);
     }
-    .active-chat .chat-wrapper{
+    .contact-form.bx.active-chat .chat-wrapper{
+        height: calc(100% - 132px);
         margin-top: 38px;
+        margin-bottom: 20px;
     }
+    .contact-form.bx.active-chat .chat-wrapper.activeMess{
+        height: calc(100% - 185px);
+    }
+    .active-chat .messengers_wrap.active{
+        margin-top: -15px;
+        margin-bottom: 20px;
+    }
+    
+    /*skeleton */
+    .skeleton_wrapper{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: #c1c1c1a3;  
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 201;
+    }
+    .skeleton_container{
+        width: 100%;
+        margin-top: -80px;
+    }
+    .skeleton_text{
+        width: 60%;
+        height: 100px;
+        background-color: #d9d9d9;
+        border-radius: 10px;
+        margin: 0 auto;
+        margin-bottom: 5px;
+        position: relative;
+        overflow: hidden;
+    }
+    .skeleton_img{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #d9d9d9;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+    .skeleton_textarea{
+        position: absolute;
+        bottom: 25px;
+        width: 90%;
+        height: 60px;
+        background-color: #d9d9d9;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .skeleton_text::before, .skeleton_img::before, .skeleton_textarea::before{
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 100%;
+        left: 0;
+        background-image: linear-gradient(to right, #d9d9d9 0%, rgba(0,0,0,0.05) 20%, #d9d9d9 40%, #d9d9d9 100%);
+        background-repeat: no-repeat;
+        background-size: 450px 400px;
+        animation: shimmer 1.5s linear infinite;
+      }
+      .skeleton_img::before{
+        animation-delay: 0.2s;
+      }
+
+      @keyframes shimmer {
+        0%{
+          background-position: -450px 0;
+        }
+        100%{
+          background-position: 450px 0;
+        }
+      }
+    /* .skeleton {
+        background-color: #e2e5e7;
+        background-image:			
+                linear-gradient(
+                    90deg, 
+                    rgba(#fff, 0), 
+                    rgba(#fff, 0.5),
+                    rgba(#fff, 0)
+                );
+        background-size: 40px 100%; 
+        background-repeat: no-repeat; 
+        background-position: left -40px top 0; 
+        animation: shine 1s ease infinite; 
+    }
+    
+    @keyframes shine {
+        to {
+            background-position: right -40px top 0;
+        }
+    } */
+    
+    
     .contact-form.active-chat .bx-livechat-wrapper{
         height: 100% !important;
     }
@@ -1355,6 +1461,8 @@ b {
     .contact-form.bx .volume{
         right: 55px;
         top: calc(50% - 21px);
+        width: 42px;
+        height: 42px;
     }
     .contact-form .bx-im-textarea-app-file{
         background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath  d='M1.816 15.556v.002c0 1.502.584 2.912 1.646 3.972s2.472 1.647 3.974 1.647a5.58 5.58 0 0 0 3.972-1.645l9.547-9.548c.769-.768 1.147-1.767 1.058-2.817-.079-.968-.548-1.927-1.319-2.698-1.594-1.592-4.068-1.711-5.517-.262l-7.916 7.915c-.881.881-.792 2.25.214 3.261.959.958 2.423 1.053 3.263.215l5.511-5.512c.28-.28.267-.722.053-.936l-.244-.244c-.191-.191-.567-.349-.957.04l-5.506 5.506c-.18.18-.635.127-.976-.214-.098-.097-.576-.613-.213-.973l7.915-7.917c.818-.817 2.267-.699 3.23.262.5.501.802 1.1.849 1.685.051.573-.156 1.111-.589 1.543l-9.547 9.549a3.97 3.97 0 0 1-2.829 1.171 3.975 3.975 0 0 1-2.83-1.173 3.973 3.973 0 0 1-1.172-2.828c0-1.071.415-2.076 1.172-2.83l7.209-7.211c.157-.157.264-.579.028-.814L11.5 4.36a.572.572 0 0 0-.834.018l-7.205 7.207a5.577 5.577 0 0 0-1.645 3.971z' fill='rgb(64,61,61)'/%3E%3C/svg%3E") !important;
@@ -1383,7 +1491,7 @@ b {
         overflow-y: auto;
     }
     .contact-form .bx-im-textarea-box {
-        padding: 5px 20px 5px 36px;
+        padding: 7px 20px 5px 36px;
         width: 80%;
     }
     .messengers_wrap.active::before{

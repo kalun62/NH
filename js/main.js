@@ -316,9 +316,7 @@ jQuery(document).ready(function ($) {
   })
 
   $('.menu-dark').click(function(e){ // закрыть меню по клику вне его
-    if (!
-      $('.mobile-menu.active').is(e.target)
-      && $('.mobile-menu.active, .mobile-menu-butt').has(e.target).length === 0){
+    if (!$('.mobile-menu.active').is(e.target) && $('.mobile-menu.active, .mobile-menu-butt').has(e.target).length === 0){
         $('.mobile-menu-butt span').removeClass('active');
         $('.mobile-menu').removeClass('active');
         $('.menu-dark').removeClass('active');
@@ -332,7 +330,7 @@ jQuery(document).ready(function ($) {
 jQuery(document).ready(function() {	
 	const closeBtn = $('<span class="close-chat"></span>')
 	$('.contact-form').prepend(closeBtn)
-
+	
 	$('#contact-form_input').click(function(){
 		openChat = true
 		fetch('https://nohau.bitrix24.ru/bitrix/services/main/ajax.php?action=crm.site.form.get')
@@ -340,20 +338,32 @@ jQuery(document).ready(function() {
 				$(this).hide();
 				document.querySelector('.b24-widget-button-icon-container').click();
 				let livechat = document.querySelector('.bx-livechat-wrapper')
-				$(livechat).css('display', 'none')
 				let load = setInterval(function(){
 				let load_win = document.querySelector('.bx-livechat-loading-window')
 						if($(load_win).length === 0){
-							let livechat_textarea = document.querySelector('.bx-livechat-textarea')
 							let livechat = document.querySelector('.bx-livechat-wrapper')
+							let livechat_textarea = document.querySelector('.bx-livechat-textarea')
+							$(livechat).css('display', 'block')
 							$(livechat).prependTo('.chat-wrapper')
 							$(livechat_textarea).prependTo('.wrap-textarea')
 							$(livechat_textarea).css('display', 'block')
+
 							if(window.innerWidth < 768){
+								
+								$('.bx-im-textarea-input').keydown(function(e){
+									if(e.keyCode == 13 && !e.shiftKey) {
+										e.preventDefault()
+										document.querySelector('.bx-im-textarea-send-button').click();
+										$('.active-chat textarea').height(30)
+									}
+								})
+
 								function mobileView () {
+									$(livechat).prependTo('.chat-wrapper')
 									$('.contact-form').addClass('bx active-chat')
 									$('body').css('overflow', 'hidden')
 									$('.mobile-menu-butt, .header-fixed').addClass('display-none')
+									
 									
 									closeBtn.css('display', 'block')
 									$('.button-input').addClass('active-chat-button').text('')
@@ -361,50 +371,87 @@ jQuery(document).ready(function() {
 
 									$('.bx-im-textarea-mobile').append($('.button-input'))
 									$('.bx-im-textarea-mobile').append($('.volume'))
-									
+
 									setTimeout(() => {
 										$('.bx-im-textarea-mobile').append($('.bx-im-textarea-app-file'))
+										if($('.messengers_wrap').hasClass('active')){
+											console.log('sdfs');
+												$('.chat-wrapper').addClass('activeMess')
+											}
 									},200)
 								}
 
-								$('.close-chat').click(() => {
-									openChat = false
-									waveAnimation()
-									$('.contact-form').removeClass('active-chat')
-									$('body').css('overflow', '')
-									$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
-									$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
-									closeBtn.css('display', 'none')
-										$('.chat-wrapper').attr('style', 'height:200px !important');
-								})
-
 								mobileView()
-									resizeChat()
 
-								$('.bx-livechat-textarea').click(() => {
-									openChat = true
-									mobileView()
-										resizeChat()
-								})
-								$('.bx-livechat-wrapper').click(() => {
-										resizeChat()
+								let skeleton = $(`
+								<div class="skeleton_wrapper">
+									 <div class="skeleton_container">
+										<div class="skeleton skeleton_text"></div>	
+										<div class="skeleton skeleton_img"></div>	
+									 </div>
+									 <div class="skeleton skeleton_textarea"></div>
+								</div>
+								`)
+								// $('.active-chat').prepend(skeleton)
+
+								setTimeout(() => {
+									skeleton.hide()
+								}, 1000);
+
+								$('.contact-form').click((e) => {
+									let target = e.target
+
+									if(!target.closest('.contact-form').classList.contains('active-chat')){
+										openChat = true
+										mobileView()
+										// skeleton.show()
+										setTimeout(() => {
+											// resizeChat()
+											scrollToBottom()
+										}, 500);
+										
+									}
+									if(target.classList.contains('close-chat')){
+										openChat = false
+										waveAnimation()
+										scrollToBottom()
+										$('.contact-form').removeClass('active-chat')
+										$('body').css('overflow', '')
+										$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
+										$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
+										closeBtn.css('display', 'none')
+										// $('.chat-wrapper').attr('style', 'height:200px !important');
+									}
+									
+									if(target.closest('.wrap-textarea')){
+										$('.chat-wrapper').attr('style', '')
+										setTimeout(() => {
+											if($('.wrap-textarea').height() > 52){
+												resizeChat()
+											}
+											scrollToBottom()
+										}, 500);
+									}else{
+										setTimeout(() => {
+											$('.chat-wrapper').attr('style', '')
+											if($('.wrap-textarea').height() > 52){
+												resizeChat()
+											}
+											scrollToBottom()
+										}, 500);
+									}
 								})
 
 								$('.active-chat textarea').on('input', function(){
 									this.style.height = 30 + 'px' 
 									this.style.height = this.scrollHeight + 'px'; 
-									setTimeout(() => {
-										resizeChat()
-									},500)
-									
+									resizeChat()
 								})
 							}
+
 							$('.bx-im-textarea-input').focus()
 							clearInterval(load)
 						}
-						$('.active-chat').click(() => {
-								resizeChat()
-						})
 					},100)	
 
 				if(window.innerWidth < 1024){
@@ -414,8 +461,15 @@ jQuery(document).ready(function() {
 			})
 	})
 
+	function scrollToBottom () {
+		let heightChat = $('.chat-wrapper').height();
+			$('.bx-livechat-wrapper').animate({
+				scrollTop: heightChat
+			}, 500);
+	}
+
 	function resizeChat(){
-		let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 60 	
+		let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80 	
 			$('.active-chat .chat-wrapper').attr('style', 'height:'+ heightChat + 'px');
 	}
 
@@ -423,6 +477,7 @@ jQuery(document).ready(function() {
 		e.preventDefault()
 		document.querySelector('.bx-im-textarea-send-button').click();
 		$('.active-chat textarea').height(30)
+		$('.chat-wrapper').attr('style', '')
 	})
 
 	let load_mess = setInterval(function(){
@@ -431,7 +486,6 @@ jQuery(document).ready(function() {
 					let livechat = document.querySelector('.bx-livechat-wrapper')
 					$(livechat).addClass('blok')
 					$(livechat).prependTo('.chat-wrapper')
-					
 					$('.contact-form').addClass('bx')
 
 					let livechat_textarea = document.querySelector('.bx-livechat-textarea')
@@ -492,7 +546,7 @@ function Observer(){  // слежение за сообщениями
 						
 						if(income_mess.classList.contains('bx-im-message-type-opponent') && mess_text.includes('https://t.me/nohau')){
 							setTimeout(()=>{
-								resizeChat()
+								$('.chat-wrapper').addClass('activeMess')
 								document.querySelector('.messengers_wrap').classList.add('active')
 								document.querySelector('.tme').classList.add('active')
 								document.querySelector('.bx-livechat-textarea').style.marginTop = 5 + 'px'
@@ -500,17 +554,18 @@ function Observer(){  // слежение за сообщениями
 						}
 						if(income_mess.classList.contains('bx-im-message-type-opponent') && mess_text.includes('https://api.whatsapp.com/send/?phone=79891659356&text=%22%D0%AF%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0,%20%D0%B4%D0%B8%D0%B0%D0%BB%D0%BE%D0%B3%200000%22')){
 							setTimeout(()=>{
-								resizeChat()	
+								$('.chat-wrapper').addClass('activeMess')
 								document.querySelector('.messengers_wrap').classList.add('active')
 								document.querySelector('.whatsapp').classList.add('active')
 								document.querySelector('.bx-livechat-textarea').style.marginTop = 5 + 'px'
 							},700)
 						}
 						if((income_mess.classList.contains('bx-im-message-type-opponent') && mess_text.includes('https://t.me/nohau') && mess_text.includes('https://api.whatsapp.com/send/?phone=79891659356&text=%22%D0%AF%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0,%20%D0%B4%D0%B8%D0%B0%D0%BB%D0%BE%D0%B3%200000%22'))){
-								document.querySelector('.messengers_wrap').classList.add('active')
-								document.querySelector('.whatsapp').classList.add('active')
-								document.querySelector('.tme').classList.add('active')
-								document.querySelector('.bx-livechat-textarea').style.marginTop = 5 + 'px'
+							$('.chat-wrapper').addClass('activeMess')
+							document.querySelector('.messengers_wrap').classList.add('active')
+							document.querySelector('.whatsapp').classList.add('active')
+							document.querySelector('.tme').classList.add('active')
+							document.querySelector('.bx-livechat-textarea').style.marginTop = 5 + 'px'
 						}
 						if(mess_text === 'Пользователь перешел в Telegram'){
 							income_mess.parentElement.style.display = 'none'
