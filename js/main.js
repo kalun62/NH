@@ -459,7 +459,7 @@ jQuery(document).ready(function() {
 	})
 
 	function resizeChat(){
-		let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 57	
+		let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80 	
 			$('.active-chat .chat-wrapper').attr('style', 'height:'+ heightChat + 'px');
 	}
 
