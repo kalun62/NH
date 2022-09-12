@@ -364,7 +364,6 @@ jQuery(document).ready(function() {
 									$('body').css('overflow', 'hidden')
 									$('.mobile-menu-butt, .header-fixed').addClass('display-none')
 									
-									
 									closeBtn.css('display', 'block')
 									$('.button-input').addClass('active-chat-button').text('')
 									$('.button-input').append($('<svg viewBox="0 0 24 24" width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>'))
@@ -375,9 +374,8 @@ jQuery(document).ready(function() {
 									setTimeout(() => {
 										$('.bx-im-textarea-mobile').append($('.bx-im-textarea-app-file'))
 										if($('.messengers_wrap').hasClass('active')){
-											console.log('sdfs');
-												$('.chat-wrapper').addClass('activeMess')
-											}
+											$('.chat-wrapper').addClass('activeMess')
+										}
 									},200)
 								}
 
@@ -394,9 +392,9 @@ jQuery(document).ready(function() {
 								// `)
 								// $('.active-chat').prepend(skeleton)
 
-								setTimeout(() => {
-									skeleton.hide()
-								}, 1000);
+								// setTimeout(() => {
+								// 	skeleton.hide()
+								// }, 1000);
 
 								$('.contact-form').click((e) => {
 									let target = e.target
@@ -406,7 +404,6 @@ jQuery(document).ready(function() {
 										mobileView()
 										// skeleton.show()
 										setTimeout(() => {
-											// resizeChat()
 										}, 500);
 										
 									}
