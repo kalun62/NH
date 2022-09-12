@@ -333,131 +333,129 @@ jQuery(document).ready(function() {
 	
 	$('#contact-form_input').click(function(){
 		openChat = true
-		fetch('https://nohau.bitrix24.ru/bitrix/services/main/ajax.php?action=crm.site.form.get')
-			.then((response) => {
-				$(this).hide();
-				document.querySelector('.b24-widget-button-icon-container').click();
-				let livechat = document.querySelector('.bx-livechat-wrapper')
-				let load = setInterval(function(){
-				let load_win = document.querySelector('.bx-livechat-loading-window')
-						if($(load_win).length === 0){
-							let livechat = document.querySelector('.bx-livechat-wrapper')
-							let livechat_textarea = document.querySelector('.bx-livechat-textarea')
-							$(livechat).css('display', 'block')
-							$(livechat).prependTo('.chat-wrapper')
-							$(livechat_textarea).prependTo('.wrap-textarea')
-							$(livechat_textarea).css('display', 'block')
+		$(this).hide()
+		document.querySelector('.b24-widget-button-icon-container').click();
+		let livechat = document.querySelector('.bx-livechat-wrapper')
+		let load = setInterval(function(){
+		let load_win = document.querySelector('.bx-livechat-loading-window')
+				if($(load_win).length === 0){
+					let livechat = document.querySelector('.bx-livechat-wrapper')
+					let livechat_textarea = document.querySelector('.bx-livechat-textarea')
+					$(livechat).css('display', 'block')
+					$(livechat).prependTo('.chat-wrapper')
+					$(livechat_textarea).prependTo('.wrap-textarea')
+					$(livechat_textarea).css('display', 'block')
 
-							if(window.innerWidth < 768){
-								
-								$('.bx-im-textarea-input').keydown(function(e){
-									if(e.keyCode == 13 && !e.shiftKey) {
-										e.preventDefault()
-										document.querySelector('.bx-im-textarea-send-button').click();
-										$('.active-chat textarea').height(30)
-									}
-								})
-
-								function mobileView () {
-									$(livechat).prependTo('.chat-wrapper')
-									$('.contact-form').addClass('bx active-chat')
-									$('body').css('overflow', 'hidden')
-									$('.mobile-menu-butt, .header-fixed').addClass('display-none')
-									
-									closeBtn.css('display', 'block')
-									$('.button-input').addClass('active-chat-button').text('')
-									$('.button-input').append($('<svg viewBox="0 0 24 24" width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>'))
-
-									$('.bx-im-textarea-mobile').append($('.button-input'))
-									$('.bx-im-textarea-mobile').append($('.volume'))
-
-									setTimeout(() => {
-										$('.bx-im-textarea-mobile').append($('.bx-im-textarea-app-file'))
-										if($('.messengers_wrap').hasClass('active')){
-											$('.chat-wrapper').addClass('activeMess')
-										}
-									},200)
-								}
-
-								mobileView()
-
-								// let skeleton = $(`
-								// <div class="skeleton_wrapper">
-								// 	 <div class="skeleton_container">
-								// 		<div class="skeleton skeleton_text"></div>	
-								// 		<div class="skeleton skeleton_img"></div>	
-								// 	 </div>
-								// 	 <div class="skeleton skeleton_textarea"></div>
-								// </div>
-								// `)
-								// $('.active-chat').prepend(skeleton)
-
-								// setTimeout(() => {
-								// 	skeleton.hide()
-								// }, 1000);
-
-								$('.contact-form').click((e) => {
-									let target = e.target
-
-									if(!target.closest('.contact-form').classList.contains('active-chat')){
-										openChat = true
-										mobileView()
-										// skeleton.show()
-										setTimeout(() => {
-										}, 500);
-										
-									}
-									if(target.classList.contains('close-chat')){
-										openChat = false
-										waveAnimation()
-										$('.contact-form').removeClass('active-chat')
-										$('body').css('overflow', '')
-										$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
-										$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
-										closeBtn.css('display', 'none')
-									}
-									
-									if(target.closest('.wrap-textarea')){
-										$('.chat-wrapper').attr('style', '')
-										
-										setTimeout(() => {
-											if($('.wrap-textarea').height() > 52){
-												resizeChat()
-											}
-										}, 500);
-									}else{
-										setTimeout(() => {
-											$('.chat-wrapper').attr('style', '')
-											if($('.wrap-textarea').height() > 52){
-												resizeChat()
-											}
-										}, 500);
-									}
-								})
-
-								$('.active-chat textarea').on('input', function(){
-									this.style.height = 30 + 'px' 
-									this.style.height = this.scrollHeight + 'px'; 
-									resizeChat()
-								})
-
-								$('.active-chat textarea').on('focus', function(){
-									setTimeout(()=> {
-										$('.bx-im-dialog-scroll-button').click()
-									},200)
-								})
+					if(window.innerWidth < 768){
+						
+						$('.bx-im-textarea-input').keydown(function(e){
+							if(e.keyCode == 13 && !e.shiftKey) {
+								e.preventDefault()
+								document.querySelector('.bx-im-textarea-send-button').click();
+								$('.active-chat textarea').height(30)
 							}
+						})
 
-							$('.bx-im-textarea-input').focus()
-							clearInterval(load)
+						function mobileView () {
+							$(livechat).prependTo('.chat-wrapper')
+							$('.contact-form').addClass('bx active-chat')
+							$('body').css('overflow', 'hidden')
+							$('.mobile-menu-butt, .header-fixed').addClass('display-none')
+							
+							closeBtn.css('display', 'block')
+							$('.button-input').addClass('active-chat-button').text('')
+							$('.button-input').append($('<svg viewBox="0 0 24 24" width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>'))
+
+							$('.bx-im-textarea-mobile').append($('.button-input'))
+							$('.bx-im-textarea-mobile').append($('.volume'))
+
+							setTimeout(() => {
+								$('.bx-im-textarea-mobile').append($('.bx-im-textarea-app-file'))
+								if($('.messengers_wrap').hasClass('active')){
+									$('.chat-wrapper').addClass('activeMess')
+								}
+							},200)
 						}
-					},100)	
 
-				if(window.innerWidth < 1024){
-					$('body').removeClass('bx-livechat-mobile-state')
-					$(livechat).removeClass('bx-livechat-mobile')
+						mobileView()
+
+						// let skeleton = $(`
+						// <div class="skeleton_wrapper">
+						// 	 <div class="skeleton_container">
+						// 		<div class="skeleton skeleton_text"></div>	
+						// 		<div class="skeleton skeleton_img"></div>	
+						// 	 </div>
+						// 	 <div class="skeleton skeleton_textarea"></div>
+						// </div>
+						// `)
+						// $('.active-chat').prepend(skeleton)
+
+						// setTimeout(() => {
+						// 	skeleton.hide()
+						// }, 1000);
+
+						$('.contact-form').click((e) => {
+							let target = e.target
+
+							if(!target.closest('.contact-form').classList.contains('active-chat')){
+								openChat = true
+								mobileView()
+								// skeleton.show()
+								setTimeout(() => {
+								}, 500);
+								
+							}
+							if(target.classList.contains('close-chat')){
+								openChat = false
+								waveAnimation()
+								$('.contact-form').removeClass('active-chat')
+								$('body').css('overflow', '')
+								$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
+								$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
+								closeBtn.css('display', 'none')
+							}
+							
+							if(target.closest('.wrap-textarea')){
+								$('.chat-wrapper').attr('style', '')
+								
+								setTimeout(() => {
+									if($('.wrap-textarea').height() > 52){
+										resizeChat()
+									}
+								}, 500);
+							}else{
+								setTimeout(() => {
+									$('.chat-wrapper').attr('style', '')
+									if($('.wrap-textarea').height() > 52){
+										resizeChat()
+									}
+								}, 500);
+							}
+						})
+
+						$('.active-chat textarea').on('input', function(){
+							this.style.height = 30 + 'px' 
+							this.style.height = this.scrollHeight + 'px'; 
+							resizeChat()
+						})
+
+						$('.active-chat textarea').on('focus', function(){
+							setTimeout(()=> {
+								$('.bx-im-dialog-scroll-button').click()
+							},200)
+						})
+					}
+
+					$('.bx-im-textarea-input').focus()
+					clearInterval(load)
 				}
-			})
+			},100)	
+
+		if(window.innerWidth < 1024){
+			$('body').removeClass('bx-livechat-mobile-state')
+			$(livechat).removeClass('bx-livechat-mobile')
+		}
+		
 	})
 
 	function resizeChat(){
