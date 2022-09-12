@@ -383,15 +383,15 @@ jQuery(document).ready(function() {
 
 								mobileView()
 
-								let skeleton = $(`
-								<div class="skeleton_wrapper">
-									 <div class="skeleton_container">
-										<div class="skeleton skeleton_text"></div>	
-										<div class="skeleton skeleton_img"></div>	
-									 </div>
-									 <div class="skeleton skeleton_textarea"></div>
-								</div>
-								`)
+								// let skeleton = $(`
+								// <div class="skeleton_wrapper">
+								// 	 <div class="skeleton_container">
+								// 		<div class="skeleton skeleton_text"></div>	
+								// 		<div class="skeleton skeleton_img"></div>	
+								// 	 </div>
+								// 	 <div class="skeleton skeleton_textarea"></div>
+								// </div>
+								// `)
 								// $('.active-chat').prepend(skeleton)
 
 								setTimeout(() => {
@@ -407,29 +407,26 @@ jQuery(document).ready(function() {
 										// skeleton.show()
 										setTimeout(() => {
 											// resizeChat()
-											scrollToBottom()
 										}, 500);
 										
 									}
 									if(target.classList.contains('close-chat')){
 										openChat = false
 										waveAnimation()
-										scrollToBottom()
 										$('.contact-form').removeClass('active-chat')
 										$('body').css('overflow', '')
 										$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
 										$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
 										closeBtn.css('display', 'none')
-										// $('.chat-wrapper').attr('style', 'height:200px !important');
 									}
 									
 									if(target.closest('.wrap-textarea')){
 										$('.chat-wrapper').attr('style', '')
+										
 										setTimeout(() => {
 											if($('.wrap-textarea').height() > 52){
 												resizeChat()
 											}
-											scrollToBottom()
 										}, 500);
 									}else{
 										setTimeout(() => {
@@ -437,7 +434,6 @@ jQuery(document).ready(function() {
 											if($('.wrap-textarea').height() > 52){
 												resizeChat()
 											}
-											scrollToBottom()
 										}, 500);
 									}
 								})
@@ -446,6 +442,12 @@ jQuery(document).ready(function() {
 									this.style.height = 30 + 'px' 
 									this.style.height = this.scrollHeight + 'px'; 
 									resizeChat()
+								})
+
+								$('.active-chat textarea').on('focus', function(){
+									setTimeout(()=> {
+										$('.bx-im-dialog-scroll-button').click()
+									},200)
 								})
 							}
 
@@ -460,13 +462,6 @@ jQuery(document).ready(function() {
 				}
 			})
 	})
-
-	function scrollToBottom () {
-		let heightChat = $('.chat-wrapper').height();
-			$('.bx-livechat-wrapper').animate({
-				scrollTop: heightChat
-			}, 500);
-	}
 
 	function resizeChat(){
 		let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80 	
