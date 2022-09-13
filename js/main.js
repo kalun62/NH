@@ -359,7 +359,8 @@ jQuery(document).ready(function() {
 						function mobileView () {
 							$(livechat).prependTo('.chat-wrapper')
 							$('.contact-form').addClass('bx active-chat')
-							$('body').css('overflow', 'hidden')
+							// $('body').css('overflow', 'hidden')
+							$('body').addClass('no-scroll')
 							$('.mobile-menu-butt, .header-fixed').addClass('display-none')
 							
 							closeBtn.css('display', 'block')
@@ -379,37 +380,19 @@ jQuery(document).ready(function() {
 
 						mobileView()
 
-						// let skeleton = $(`
-						// <div class="skeleton_wrapper">
-						// 	 <div class="skeleton_container">
-						// 		<div class="skeleton skeleton_text"></div>	
-						// 		<div class="skeleton skeleton_img"></div>	
-						// 	 </div>
-						// 	 <div class="skeleton skeleton_textarea"></div>
-						// </div>
-						// `)
-						// $('.active-chat').prepend(skeleton)
-
-						// setTimeout(() => {
-						// 	skeleton.hide()
-						// }, 1000);
-
 						$('.contact-form').click((e) => {
 							let target = e.target
 
 							if(!target.closest('.contact-form').classList.contains('active-chat')){
 								openChat = true
-								mobileView()
-								// skeleton.show()
-								setTimeout(() => {
-								}, 500);
-								
+								mobileView()								
 							}
 							if(target.classList.contains('close-chat')){
 								openChat = false
 								waveAnimation()
 								$('.contact-form').removeClass('active-chat')
-								$('body').css('overflow', '')
+								// $('body').css('overflow', '')
+								$('body').removeClass('no-scroll')
 								$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
 								$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
 								closeBtn.css('display', 'none')
@@ -417,7 +400,6 @@ jQuery(document).ready(function() {
 							
 							if(target.closest('.wrap-textarea')){
 								$('.chat-wrapper').attr('style', '')
-								
 								setTimeout(() => {
 									if($('.wrap-textarea').height() > 52){
 										resizeChat()
@@ -504,7 +486,6 @@ jQuery(document).ready(function() {
 							}
 						})
 					})
-				
 				}
 	},100)	
 
