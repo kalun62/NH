@@ -404,6 +404,7 @@ jQuery(document).ready(function() {
 									}
 								}, 500);
 							}else{
+								$('.heightChat').remove()
 								setTimeout(() => {
 									$('.chat-wrapper').attr('style', '')
 									if($('.wrap-textarea').height() > 52){
@@ -422,6 +423,8 @@ jQuery(document).ready(function() {
 						$('.active-chat textarea').on('focus', function(){
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
+								let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
+								$('.active-chat').prepend($(`<div class="heightChat">${heightChat}</div>`))
 							},200)
 						})
 					}
