@@ -359,7 +359,6 @@ jQuery(document).ready(function() {
 						function mobileView () {
 							$(livechat).prependTo('.chat-wrapper')
 							$('.contact-form').addClass('bx active-chat')
-							// $('body').css('overflow', 'hidden')
 							$('body').addClass('no-scroll')
 							$('.mobile-menu-butt, .header-fixed').addClass('display-none')
 							
@@ -367,11 +366,11 @@ jQuery(document).ready(function() {
 							$('.button-input').addClass('active-chat-button').text('')
 							$('.button-input').append($('<svg viewBox="0 0 24 24" width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>'))
 
-							$('.bx-im-textarea-mobile').append($('.button-input'))
-							$('.bx-im-textarea-mobile').append($('.volume'))
+							$('.bx-im-textarea').append($('.button-input'))
+							$('.bx-im-textarea').append($('.volume'))
 
 							setTimeout(() => {
-								$('.bx-im-textarea-mobile').append($('.bx-im-textarea-app-file'))
+								$('.bx-im-textarea').append($('.bx-im-textarea-app-file'))
 								if($('.messengers_wrap').hasClass('active')){
 									$('.chat-wrapper').addClass('activeMess')
 								}
@@ -391,7 +390,6 @@ jQuery(document).ready(function() {
 								openChat = false
 								waveAnimation()
 								$('.contact-form').removeClass('active-chat')
-								// $('body').css('overflow', '')
 								$('body').removeClass('no-scroll')
 								$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
 								$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
@@ -423,8 +421,6 @@ jQuery(document).ready(function() {
 
 						$('.active-chat textarea').on('focus', function(){
 							setTimeout(()=> {
-								resizeChat()
-
 								$('.bx-im-dialog-scroll-button').click()
 							},200)
 						})
