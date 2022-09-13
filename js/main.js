@@ -423,6 +423,8 @@ jQuery(document).ready(function() {
 
 						$('.active-chat textarea').on('focus', function(){
 							setTimeout(()=> {
+								resizeChat()
+
 								$('.bx-im-dialog-scroll-button').click()
 							},200)
 						})
