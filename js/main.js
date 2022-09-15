@@ -421,7 +421,9 @@ jQuery(document).ready(function() {
 							this.style.height = this.scrollHeight + 'px'; 
 							resizeChat()
 						})
-
+if (/iPhone/.test(navigator.platform)){
+							console.log('iphone');
+						}
 						$('.active-chat textarea').on('focus', function(){
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
