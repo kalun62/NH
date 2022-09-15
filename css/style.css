@@ -4,7 +4,6 @@ body {
 }
 .no-scroll{
     overflow: hidden;
-    position: fixed;
     height: 100%;
 }
 h1 {
