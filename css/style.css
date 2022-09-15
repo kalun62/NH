@@ -1266,9 +1266,9 @@ b {
     }
     .active-chat{
         width: 100%;
-        height: 100% !important;
-        max-height: 100%;
-        position: fixed !important;
+        height: 100%;
+        
+        position: fixed;
         left: 0;
         top: -83px;
         z-index: 100;
