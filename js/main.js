@@ -405,6 +405,8 @@ jQuery(document).ready(function() {
 								}, 500);
 							}else{
 								$('.heightChat').remove()
+								let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
+								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute">${heightChat}</div>`))
 								setTimeout(() => {
 									$('.chat-wrapper').attr('style', '')
 									if($('.wrap-textarea').height() > 52){
@@ -424,7 +426,7 @@ jQuery(document).ready(function() {
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
 								let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
-								$('.active-chat').prepend($(`<div class="heightChat" style="position:absolute">${heightChat}</div>`))
+								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute">${heightChat}</div>`))
 							},200)
 						})
 					}
