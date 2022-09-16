@@ -1270,7 +1270,7 @@ b {
         position: fixed !important;
         left: 0;
         top: -83px;
-        z-index: 100;
+        z-index: 100 !important;
         padding: 0 !important;
     }
     .active-chat-button svg{
