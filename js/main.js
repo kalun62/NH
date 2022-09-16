@@ -423,6 +423,9 @@ jQuery(document).ready(function() {
 							resizeChat()
 						})
 
+						if (!/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
+								$('.active-chat').css('backgrond', 'red')
+							}
 						$('.active-chat textarea').on('focus', function(){
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
