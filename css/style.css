@@ -1417,6 +1417,10 @@ b {
           background-position: 450px 0;
         }
       }
+    .competition-wrap {
+        position: relative;
+        z-index: 6;
+    }
     /* .skeleton {
         background-color: #e2e5e7;
         background-image:			
