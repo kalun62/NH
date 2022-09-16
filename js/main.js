@@ -355,8 +355,9 @@ jQuery(document).ready(function() {
 								$('.active-chat textarea').height(30)
 							}
 						})
-
+//поменять высоту блока при открывании клавиатуры iphone js contact form? просто уезжает наверх
 						function mobileView () {
+							$('.contact-form').appendTo('body')
 							$(livechat).prependTo('.chat-wrapper')
 							$('.contact-form').addClass('bx active-chat')
 							$('body').addClass('no-scroll')
@@ -389,6 +390,7 @@ jQuery(document).ready(function() {
 							if(target.classList.contains('close-chat')){
 								openChat = false
 								waveAnimation()
+								$('.contact-form').appendTo('.main-block')
 								$('.contact-form').removeClass('active-chat')
 								$('body').removeClass('no-scroll')
 								$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
@@ -405,8 +407,8 @@ jQuery(document).ready(function() {
 								}, 500);
 							}else{
 								$('.heightChat').remove()
-								let heightChat = window.pageYOffset
-
+								// let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
+								let heightChat = window.outerHeight
 								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute">${heightChat}</div>`))
 								setTimeout(() => {
 									$('.chat-wrapper').attr('style', '')
@@ -422,15 +424,17 @@ jQuery(document).ready(function() {
 							this.style.height = this.scrollHeight + 'px'; 
 							resizeChat()
 						})
+						
+						// if (!/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
+						// 		$('.active-chat').css('backgrond', 'red')
+						// 	}
 
-						if (!/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
-								$('.active-chat').css('backgrond', 'red')
-							}
 						$('.active-chat textarea').on('focus', function(){
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
 								$('.heightChat').remove()
-								let heightChat = window.pageYOffset
+								// let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
+								let heightChat = window.outerHeight
 								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute">${heightChat}</div>`))
 							},200)
 						})
