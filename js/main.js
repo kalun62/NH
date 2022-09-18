@@ -357,7 +357,6 @@ jQuery(document).ready(function() {
 						})
 //поменять высоту блока при открывании клавиатуры iphone js contact form? просто уезжает наверх
 						function mobileView () {
-							$('.contact-form').appendTo('body')
 							$(livechat).prependTo('.chat-wrapper')
 							$('.contact-form').addClass('bx active-chat')
 							$('body').addClass('no-scroll')
@@ -365,7 +364,8 @@ jQuery(document).ready(function() {
 							
 							closeBtn.css('display', 'block')
 							$('.button-input').addClass('active-chat-button').text('')
-							$('.button-input').append($('<svg viewBox="0 0 24 24" width="30px" height="30px" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>'))
+							// $('.button-input').append($('<svg viewBox="0 0 24 24" width="30px" height="30px" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>'))
+							$('.button-input').append($('<img src="/image/send-button.svg">'))
 
 							$('.bx-im-textarea').append($('.button-input'))
 							$('.bx-im-textarea').append($('.volume'))
@@ -390,7 +390,6 @@ jQuery(document).ready(function() {
 							if(target.classList.contains('close-chat')){
 								openChat = false
 								waveAnimation()
-								$('.contact-form').appendTo('.main-block')
 								$('.contact-form').removeClass('active-chat')
 								$('body').removeClass('no-scroll')
 								$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
@@ -425,10 +424,10 @@ jQuery(document).ready(function() {
 							resizeChat()
 						})
 						
-						// if (!/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
-						// 		$('.active-chat').css('backgrond', 'red')
-						// 	}
-
+						if (!/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
+								$('.active-chat').css('backgrond', 'red')
+							}
+							
 						$('.active-chat textarea').on('focus', function(){
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
