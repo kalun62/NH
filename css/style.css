@@ -1275,6 +1275,7 @@ b {
     }
     .active-chat-button svg{
         margin-left: 4px;
+        width: 100%;
     }
     .contact-form .close-chat{
         display: none;
