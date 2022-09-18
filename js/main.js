@@ -328,6 +328,9 @@ jQuery(document).ready(function ($) {
 // окно обратной связи
 
 jQuery(document).ready(function() {	
+	document.ontouchmove = function(e){
+		e.preventDefault();
+		}
 	const closeBtn = $('<span class="close-chat"></span>')
 	$('.contact-form').prepend(closeBtn)
 	
