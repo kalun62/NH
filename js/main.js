@@ -426,10 +426,6 @@ jQuery(document).ready(function() {
 							this.style.height = this.scrollHeight + 'px'; 
 							resizeChat()
 						})
-						
-						if (!/iPad|iPhone|iPod/g.test(navigator.userAgent)) {
-								$('.active-chat').css('backgrond', 'red')
-							}
 							
 						$('.active-chat textarea').on('focus', function(){
 							setTimeout(()=> {
@@ -440,10 +436,7 @@ jQuery(document).ready(function() {
 								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute">${heightChat}</div>`))
 							},200)
 						})
-							$('.active-chat textarea').onfocus = function () {
-							window.scrollTo(0, 0);
-							document.body.scrollTop = 0;
-						}
+							
 					}
 
 					$('.bx-im-textarea-input').focus()
