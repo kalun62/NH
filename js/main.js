@@ -440,6 +440,10 @@ jQuery(document).ready(function() {
 								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute">${heightChat}</div>`))
 							},200)
 						})
+							$('.active-chat textarea').onfocus = function () {
+							window.scrollTo(0, 0);
+							document.body.scrollTop = 0;
+						}
 					}
 
 					$('.bx-im-textarea-input').focus()
