@@ -411,12 +411,14 @@ jQuery(document).ready(function() {
 							
 							if(target.closest('.wrap-textarea')){
 								$('.chat-wrapper').attr('style', '')
+								window.scrollTo(0, 500);
 								setTimeout(() => {
 									if($('.wrap-textarea').height() > 52){
 										resizeChat()
 									}
 								}, 500);
 							}else{
+								window.scrollTo(0, 500);
 								$('.heightChat').remove()
 								// let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
 								let heightChat = window.outerHeight
