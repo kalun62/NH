@@ -409,7 +409,7 @@ jQuery(document).ready(function() {
 
 								document.body.style.position = '';
 								document.body.style.top = '';
-								window.scrollTo(0, 500);
+								window.scrollTo(0, $(".contact-form").offset().top - $(window).scrollTop() - 85);
 
 								$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
 								$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
