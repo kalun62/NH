@@ -1,4 +1,5 @@
 jQuery(document).ready(function() {	
-
-	$('.main-block h1').text('fnfnfnfn')
+$('.contact-form').click((e) => {
+		window.scrollTo(0, 0)
+	})
 })
