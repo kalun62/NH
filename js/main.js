@@ -444,7 +444,8 @@ jQuery(document).ready(function() {
 							resizeChat()
 						})
 			
-						$('.active-chat textarea').on('focus', function(){
+						$('.active-chat textarea').on('focus', function(e){
+							e.preventDefault()
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
 								$('.heightChat').remove()
