@@ -363,6 +363,9 @@ jQuery(document).ready(function() {
 							$(livechat).prependTo('.chat-wrapper')
 							$('.contact-form').addClass('bx active-chat')
 							$('body').addClass('no-scroll')
+							
+							document.body.style.position = 'fixed';
+
 
 							$('.mobile-menu-butt, .header-fixed').addClass('display-none')
 							
@@ -396,6 +399,10 @@ jQuery(document).ready(function() {
 								waveAnimation()
 								$('.contact-form').removeClass('active-chat')
 								$('body').removeClass('no-scroll')
+								
+								document.body.style.position = '';
+								document.body.style.top = '';
+								window.scrollTo(0, 500);
 								
 								$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
 								$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
