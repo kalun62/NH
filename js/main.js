@@ -331,8 +331,11 @@ jQuery(document).ready(function() {
 
 	let is_ipad = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
 
-	if(is_ipad)
-	$('<link rel="stylesheet" type="text/css" href="css/iphone.css" />').appendTo('head');
+	if(is_ipad){
+		$('<link rel="stylesheet" type="text/css" href="css/iphone.css" />').appendTo('head');
+
+	}
+	
 
 	const closeBtn = $('<span class="close-chat"></span>')
 	$('.contact-form').prepend(closeBtn)
@@ -366,7 +369,7 @@ jQuery(document).ready(function() {
 							$(livechat).prependTo('.chat-wrapper')
 							$('.contact-form').addClass('bx active-chat')
 							$('body').addClass('no-scroll')
-
+							$('.active-chat').appendTo('body')	
 							document.body.style.position = 'fixed';
 
 							$('.mobile-menu-butt, .header-fixed').addClass('display-none')
@@ -392,11 +395,14 @@ jQuery(document).ready(function() {
 							let target = e.target
 
 							if(!target.closest('.contact-form').classList.contains('active-chat')){
+								
 								openChat = true
-								mobileView()								
+								mobileView()
+															
 							}
 							if(target.classList.contains('close-chat')){
 								openChat = false
+								$('.active-chat').appendTo('.main-block')
 								waveAnimation()
 								$('.contact-form').removeClass('active-chat')
 								$('body').removeClass('no-scroll')
