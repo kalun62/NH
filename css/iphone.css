@@ -1,7 +1,7 @@
 .contact-form.bx.active-chat{
 	position: absolute !important;
 	left: 0;
-	top: 0 !important;
+	top: -83px !important;
 	bottom: 0 !important;
 	right: 0;
 }
