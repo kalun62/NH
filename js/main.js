@@ -328,9 +328,12 @@ jQuery(document).ready(function ($) {
 // окно обратной связи
 
 jQuery(document).ready(function() {	
-	document.ontouchmove = function(e){
-		e.preventDefault();
-		}
+
+	let is_ipad = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
+
+	if(is_ipad)
+	$('<link rel="stylesheet" type="text/css" href="css/iphone.css" />').appendTo('head');
+
 	const closeBtn = $('<span class="close-chat"></span>')
 	$('.contact-form').prepend(closeBtn)
 	
@@ -363,15 +366,13 @@ jQuery(document).ready(function() {
 							$(livechat).prependTo('.chat-wrapper')
 							$('.contact-form').addClass('bx active-chat')
 							$('body').addClass('no-scroll')
-							
-							document.body.style.position = 'fixed';
 
+							document.body.style.position = 'fixed';
 
 							$('.mobile-menu-butt, .header-fixed').addClass('display-none')
 							
 							closeBtn.css('display', 'block')
 							$('.button-input').addClass('active-chat-button').text('')
-							// $('.button-input').append($('<svg viewBox="0 0 24 24" width="30px" height="30px" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>'))
 							$('.button-input').append($('<img src="image/send-button.svg">'))
 
 							$('.bx-im-textarea').append($('.button-input'))
@@ -399,11 +400,11 @@ jQuery(document).ready(function() {
 								waveAnimation()
 								$('.contact-form').removeClass('active-chat')
 								$('body').removeClass('no-scroll')
-								
+
 								document.body.style.position = '';
 								document.body.style.top = '';
 								window.scrollTo(0, 500);
-								
+
 								$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
 								$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
 								closeBtn.css('display', 'none')
