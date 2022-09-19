@@ -1268,6 +1268,7 @@ b {
         height: 100% !important;
         max-height: 100%;
         position: fixed !important;
+        overflow: hidden !important;
         top: -83px;
         left: 0;
         bottom: 0;
