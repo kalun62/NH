@@ -426,7 +426,7 @@ jQuery(document).ready(function() {
 									}
 								}, 500);
 							}else{
-								window.scrollTo(0, 500);
+								
 								$('.heightChat').remove()
 								// let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
 								let heightChat = window.innerHeight
