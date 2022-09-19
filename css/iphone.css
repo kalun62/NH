@@ -10,3 +10,7 @@
 .openKeyboard{
 	height: 80%;
 }
+
+.active-chat{
+	overflow-y: scroll;
+}
