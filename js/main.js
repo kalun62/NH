@@ -409,6 +409,8 @@ jQuery(document).ready(function() {
 
 								document.body.style.position = '';
 								document.body.style.top = '';
+								document.body.style.height = '';
+								document.documentElement.style.height = '';
 								window.scrollTo(0, $(".contact-form").offset().top - $(window).scrollTop() - 85);
 
 								$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
@@ -448,6 +450,10 @@ jQuery(document).ready(function() {
 							e.preventDefault()
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
+								const innerHeight = window.innerHeight;
+								document.body.style.height = innerHeight + 'px';
+								document.documentElement.style.height = innerHeight + 'px';
+								window.scrollTo(0, 0);
 								$('.heightChat').remove()
 								// let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
 								let heightChat = window.innerHeight
