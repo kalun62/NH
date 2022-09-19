@@ -333,7 +333,7 @@ jQuery(document).ready(function() {
 
 	if(is_ipad){
 		$('<link rel="stylesheet" type="text/css" href="css/iphone.css" />').appendTo('head');
-
+		$('<script type="text/javascript" src="js/iphone.js"></script>').appendTo('body');
 	}
 	
 
@@ -418,12 +418,15 @@ jQuery(document).ready(function() {
 							
 							if(target.closest('.wrap-textarea')){
 								$('.chat-wrapper').attr('style', '')
+								$('.active-chat').addClass('openKeyboard')
 								setTimeout(() => {
 									if($('.wrap-textarea').height() > 52){
 										resizeChat()
 									}
 								}, 500);
 							}else{
+								$('.active-chat').removeClass('openKeyboard')
+
 								$('.heightChat').remove()
 								// let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
 								let heightChat = window.innerHeight
@@ -443,7 +446,7 @@ jQuery(document).ready(function() {
 							resizeChat()
 						})
 			
-						$('.active-chat textarea').on('focus', function(e){
+						$('.active-chat textarea').on('focus', function(){
 							$('.active-chat').addClass('openKeyboard')
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
@@ -453,9 +456,8 @@ jQuery(document).ready(function() {
 								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute">${heightChat}</div>`))
 							},200)
 						})
-						$('.active-chat textarea').on('blur', function(e){
-							$('.active-chat').removeClass('openKeyboard')
-						})
+						// $('.active-chat textarea').on('blur', function(){
+						// })
 					}
 
 					$('.bx-im-textarea-input').focus()
