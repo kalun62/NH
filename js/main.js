@@ -449,11 +449,16 @@ jQuery(document).ready(function() {
 							$('.active-chat').addClass('openKeyboard')
 							
 							$('.active-chat').addClass('openKeyboard')
+							
 							setTimeout(() => {
 								let iphone_scroll = window.scrollY
-								console.log(iphone_scroll);
-								$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important`)
+								let iphone_height = window.height()
 
+								console.log(iphone_scroll);
+								setTimeout(() => {
+									$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important`)
+									$('.active-chat').attr('style',`height: ${iphone_height * .9 - iphone_scroll}px !important`)
+								})
 							}, 500);
 							
 							setTimeout(()=> {
