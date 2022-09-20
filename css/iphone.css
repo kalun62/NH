@@ -2,15 +2,16 @@
 	position: absolute !important;
 	left: 0;
 	top: -85px !important;
-	bottom: 60px !important;
+	bottom: 40px;
 	right: 0;
-	height: 60%;
+	height: 80% !important;
 }
 
 .openKeyboard{
-	height: 80%;
+	height: 60% !important;
 }
 
 .active-chat{
 	overflow-y: scroll;
 }
+
