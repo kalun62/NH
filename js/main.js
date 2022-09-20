@@ -447,7 +447,9 @@ jQuery(document).ready(function() {
 			
 						$('.active-chat textarea').on('focus', function(){
 							$('.active-chat').addClass('openKeyboard')
-							console.log(window.pageYOffset);
+								setTimeout(() => {
+								console.log(window.pageYOffset);
+							}, 500);
 
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
