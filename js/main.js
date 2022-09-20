@@ -448,7 +448,8 @@ jQuery(document).ready(function() {
 						$('.active-chat textarea').on('focus', function(){
 							$('.active-chat').addClass('openKeyboard')
 								setTimeout(() => {
-								console.log(window.pageYOffset);
+							console.log(window.scrollY);
+
 							}, 500);
 
 							setTimeout(()=> {
