@@ -402,14 +402,13 @@ jQuery(document).ready(function() {
 							if(target.classList.contains('close-chat')){
 								openChat = false
 								$('.active-chat').appendTo('.main-block')
-								waveAnimation()
-								$('.contact-form').removeClass('active-chat')
-								$('body').removeClass('no-scroll')
-
 								if(is_ipad){
 									$('.active-chat').removeClass('openKeyboard')
 									$('.active-chat').attr('style', '')
 								}	
+								waveAnimation()
+								$('.contact-form').removeClass('active-chat')
+								$('body').removeClass('no-scroll')
 
 								document.body.style.position = '';
 								document.body.style.top = '';
