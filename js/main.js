@@ -406,6 +406,11 @@ jQuery(document).ready(function() {
 								$('.contact-form').removeClass('active-chat')
 								$('body').removeClass('no-scroll')
 
+								if(is_ipad){
+									$('.active-chat').removeClass('openKeyboard')
+									$('.active-chat').attr('style', '')
+								}	
+
 								document.body.style.position = '';
 								document.body.style.top = '';
 								window.scrollTo(0, $(".contact-form").offset().top - $(window).scrollTop() - 85);
@@ -413,11 +418,6 @@ jQuery(document).ready(function() {
 								$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
 								$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
 								closeBtn.css('display', 'none')
-
-								if(is_ipad){
-									$('.active-chat').removeClass('openKeyboard')
-									$('.active-chat').attr('style', '')
-								}	
 							}
 							
 							if(target.closest('.wrap-textarea')){
