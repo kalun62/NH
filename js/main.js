@@ -371,10 +371,6 @@ jQuery(document).ready(function() {
 							$('.active-chat').prependTo('body')	
 							document.body.style.position = 'fixed';
 
-							setTimeout(() => {
-								window.scrollTo(0, 0)
-							}, 100)
-
 							$('.mobile-menu-butt, .header-fixed').addClass('display-none')
 							
 							closeBtn.css('display', 'block')
@@ -449,20 +445,21 @@ jQuery(document).ready(function() {
 						})
 			
 						$('.active-chat textarea').on('focus', function(){
-							$('.active-chat').addClass('openKeyboard')
 							
-							$('.active-chat').addClass('openKeyboard')
-							
-							setTimeout(() => {
-								let iphone_scroll = window.scrollY
-								let iphone_height = $(window).height()
-								console.log(iphone_scroll);
-								console.log(iphone_height);
+							if(is_ipad){
+								$('.active-chat').addClass('openKeyboard')
+
 								setTimeout(() => {
-									$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
-								})
-							}, 500);
+									let iphone_scroll = window.scrollY
+									let iphone_height = $('window').height()
+
+									console.log(iphone_height);
+									setTimeout(() => {
+										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+									})
+								}, 500);
 							
+							}
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
 								$('.heightChat').remove()
