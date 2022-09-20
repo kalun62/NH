@@ -369,7 +369,8 @@ jQuery(document).ready(function() {
 							$('.contact-form').addClass('bx active-chat')
 							$('body').addClass('no-scroll')
 							$('.active-chat').prependTo('body')	
-
+							document.body.style.position = 'fixed';
+							
 							$('.mobile-menu-butt, .header-fixed').addClass('display-none')
 							
 							closeBtn.css('display', 'block')
