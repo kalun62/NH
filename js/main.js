@@ -450,7 +450,7 @@ jQuery(document).ready(function() {
 							setTimeout(() => {
 								let iphone_scroll = window.scrollY
 								console.log(iphone_scroll);
-								$('.active-chat').css('height', `${iphone_scroll} - 85 + px`)
+								$('.active-chat').css('height', iphone_scroll -85 + 'px')
 							}, 500);
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
