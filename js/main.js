@@ -456,8 +456,7 @@ jQuery(document).ready(function() {
 
 								console.log(iphone_scroll);
 								setTimeout(() => {
-									$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important`)
-									$('.active-chat').attr('style',`height: ${iphone_height * .9 - iphone_scroll}px !important`)
+									$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
 								})
 							}, 500);
 							
