@@ -1,0 +1,20 @@
+.no-scroll{
+	position: fixed;
+}
+.active-chat{
+	position: absolute !important;
+	left: 0;
+	top: -85px !important;
+	/* bottom: 40px; */
+	right: 0;
+	height: 90% !important;
+}
+
+.active-chat.openKeyboard{
+	/* top: 215px !important; */
+	height: 55% !important;
+}
+
+.active-chat-button{
+	padding: 1px 6px !important;
+}

@@ -332,8 +332,8 @@ jQuery(document).ready(function() {
 	let is_ipad = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
 
 	if(is_ipad){
-		$('<link rel="stylesheet" type="text/css" href="css/iphone.css" />').appendTo('head');
-		$('<script type="text/javascript" src="js/iphone.js"></script>').appendTo('body');
+		$('<link rel="stylesheet" type="text/css" href="css/iphone-view.css" />').appendTo('head');
+		$('<script type="text/javascript" src="js/iphone-view.js"></script>').appendTo('body');
 	}
 	
 	const closeBtn = $('<span class="close-chat"></span>')
@@ -374,7 +374,7 @@ jQuery(document).ready(function() {
 							setTimeout(() => {
 								window.scrollTo(0, 0)
 							}, 100)
-							
+
 							$('.mobile-menu-butt, .header-fixed').addClass('display-none')
 							
 							closeBtn.css('display', 'block')
