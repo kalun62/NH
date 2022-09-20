@@ -425,7 +425,10 @@ jQuery(document).ready(function() {
 									}
 								}, 500);
 							}else{
-								$('.active-chat').removeClass('openKeyboard')
+								if(is_ipad){
+									$('.active-chat').removeClass('openKeyboard')
+									$('.active-chat').attr('style', '')
+								}	
 								$('.heightChat').remove()
 								// let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
 								let heightChat = window.innerHeight
