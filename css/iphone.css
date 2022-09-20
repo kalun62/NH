@@ -16,3 +16,7 @@
 	overflow-y: scroll;
 }
 
+.active-chat-button img{
+	margin-left: 4px;
+	width: 200%;
+}
