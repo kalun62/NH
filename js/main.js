@@ -452,8 +452,8 @@ jQuery(document).ready(function() {
 							
 							setTimeout(() => {
 								let iphone_scroll = window.scrollY
-								let iphone_height = window.outerHeight
-
+								let iphone_height = window.innerHeight
+								console.log(iphone_scroll);
 								console.log(iphone_height);
 								setTimeout(() => {
 									$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
