@@ -452,7 +452,7 @@ jQuery(document).ready(function() {
 							
 							setTimeout(() => {
 								let iphone_scroll = window.scrollY
-								let iphone_height = window.innerHeight
+								let iphone_height = $('window').height()
 								console.log(iphone_scroll);
 								console.log(iphone_height);
 								setTimeout(() => {
