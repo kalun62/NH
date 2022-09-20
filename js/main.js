@@ -369,7 +369,7 @@ jQuery(document).ready(function() {
 							$(livechat).prependTo('.chat-wrapper')
 							$('.contact-form').addClass('bx active-chat')
 							$('body').addClass('no-scroll')
-							$('.active-chat').appendTo('body')	
+							$('.active-chat').prependTo('body')	
 							document.body.style.position = 'fixed';
 
 							$('.mobile-menu-butt, .header-fixed').addClass('display-none')
