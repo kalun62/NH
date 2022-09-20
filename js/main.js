@@ -371,6 +371,10 @@ jQuery(document).ready(function() {
 							$('.active-chat').prependTo('body')	
 							document.body.style.position = 'fixed';
 
+							setTimeout(() => {
+								window.scrollTo(0, 0)
+							}, 100)
+							
 							$('.mobile-menu-butt, .header-fixed').addClass('display-none')
 							
 							closeBtn.css('display', 'block')
