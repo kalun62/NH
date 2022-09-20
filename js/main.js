@@ -336,7 +336,6 @@ jQuery(document).ready(function() {
 		$('<script type="text/javascript" src="js/iphone.js"></script>').appendTo('body');
 	}
 	
-
 	const closeBtn = $('<span class="close-chat"></span>')
 	$('.contact-form').prepend(closeBtn)
 	
@@ -423,7 +422,6 @@ jQuery(document).ready(function() {
 								}, 500);
 							}else{
 								$('.active-chat').removeClass('openKeyboard')
-
 								$('.heightChat').remove()
 								// let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
 								let heightChat = window.innerHeight
@@ -445,7 +443,6 @@ jQuery(document).ready(function() {
 			
 						$('.active-chat textarea').on('focus', function(){
 							$('.active-chat').addClass('openKeyboard')
-
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
 								$('.heightChat').remove()

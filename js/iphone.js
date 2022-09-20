@@ -1,13 +1,11 @@
 jQuery(document).ready(function() {	
 
-	$('.bx-im-textarea-input').on('focus', function(){
-		console.log('focus');
-		$('.active-chat').addClass('openKeyboard')
-	})
-	$('.bx-im-textarea-input').on('blur', function(){
-		console.log('blur');
-		$('.active-chat').removeClass('openKeyboard')
-	})
-
-	console.log('вроде работает');
+	// $('.contact-form').click(() => {
+	// 	window.scrollTo(0, 0)
+	// })
+	
 })
+
+// сделать окно на весь экран и поверх всех элементов но в рамках страницы и разрешить скролл всей страницы
+
+// при фокусе скролить всю страницу вверх, сделать стандарный top у active-chat и менять высоту блока классом
