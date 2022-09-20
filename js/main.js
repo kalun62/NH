@@ -448,12 +448,14 @@ jQuery(document).ready(function() {
 						$('.active-chat textarea').on('focus', function(){
 							$('.active-chat').addClass('openKeyboard')
 							
-							let iphone_scroll
+							$('.active-chat').addClass('openKeyboard')
 							setTimeout(() => {
-								iphone_scroll = window.scrollY
+								let iphone_scroll = window.scrollY
 								console.log(iphone_scroll);
+								setTimeout(() => {
+									$('.active-chat').css('top', iphone_scroll -85 + 'px')
+								})
 							}, 500);
-							$('.active-chat').css('top', iphone_scroll -85 + 'px')
 							
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
