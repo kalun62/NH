@@ -395,10 +395,8 @@ jQuery(document).ready(function() {
 							let target = e.target
 
 							if(!target.closest('.contact-form').classList.contains('active-chat')){
-								
 								openChat = true
 								mobileView()
-															
 							}
 							if(target.classList.contains('close-chat')){
 								openChat = false
