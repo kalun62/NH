@@ -1,4 +1,4 @@
-.contact-form.bx.active-chat{
+.active-chat{
 	position: absolute !important;
 	left: 0;
 	top: -85px !important;
@@ -7,14 +7,10 @@
 	height: 90% !important;
 }
 
-.openKeyboard{
-	top: 105px;
-	height: 40% !important;
+.active-chat.openKeyboard{
+	top: 165px !important;
+	height: 61% !important;
 	background-color: #ff0000;
-}
-
-.active-chat{
-	overflow-y: scroll;
 }
 
 .active-chat-button{
