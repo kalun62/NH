@@ -9,7 +9,7 @@ contact_form.addEventListener('click', () => {
 		input.addEventListener('focus', () => {
 			active_chat.classList.add('openKeyboard')
 		})
-		input.addEventListener('focus', () => {
+		input.addEventListener('blur', () => {
 			active_chat.classList.remove('openKeyboard')
 		})
 	}, 100)
