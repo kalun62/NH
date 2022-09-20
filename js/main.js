@@ -452,7 +452,7 @@ jQuery(document).ready(function() {
 							setTimeout(() => {
 								let iphone_scroll = window.scrollY
 								console.log(iphone_scroll);
-								$('.active-chat').attr('style','top:' + iphone_scroll - 85 + 'px !important')
+								$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important`)
 
 							}, 500);
 							
