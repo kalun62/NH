@@ -364,13 +364,15 @@ jQuery(document).ready(function() {
 							}
 						})
 //поменять высоту блока при открывании клавиатуры iphone js contact form? просто уезжает наверх
+
+// 664 умножать высоту на .9
 						function mobileView () {
 							$(livechat).prependTo('.chat-wrapper')
 							$('.contact-form').addClass('bx active-chat')
 							$('body').addClass('no-scroll')
 							$('.active-chat').prependTo('body')	
 							document.body.style.position = 'fixed';
-							
+
 							$('.mobile-menu-butt, .header-fixed').addClass('display-none')
 							
 							closeBtn.css('display', 'block')
@@ -411,6 +413,11 @@ jQuery(document).ready(function() {
 								$('.mobile-menu-butt, .header-fixed').removeClass('display-none')
 								$('.contact-form .bx-livechat-wrapper').css('margin-top', '20px')
 								closeBtn.css('display', 'none')
+
+								if(is_ipad){
+									$('.active-chat').removeClass('openKeyboard')
+									$('.active-chat').attr('style', '')
+								}	
 							}
 							
 							if(target.closest('.wrap-textarea')){
