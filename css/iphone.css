@@ -2,13 +2,13 @@
 	position: absolute !important;
 	left: 0;
 	top: -85px !important;
-	bottom: 40px;
+	bottom: 20px;
 	right: 0;
-	height: 80% !important;
+	height: 90% !important;
 }
 
 .openKeyboard{
-	height: 60% !important;
+	height: 50% !important;
 	background-color: #ff2e2e;
 }
 
