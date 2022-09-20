@@ -9,6 +9,7 @@
 
 .openKeyboard{
 	height: 60% !important;
+	background-color: red;
 }
 
 .active-chat{

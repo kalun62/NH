@@ -418,14 +418,12 @@ jQuery(document).ready(function() {
 							
 							if(target.closest('.wrap-textarea')){
 								$('.chat-wrapper').attr('style', '')
-								$('.active-chat').addClass('openKeyboard')
 								setTimeout(() => {
 									if($('.wrap-textarea').height() > 52){
 										resizeChat()
 									}
 								}, 500);
 							}else{
-								$('.active-chat').removeClass('openKeyboard')
 
 								$('.heightChat').remove()
 								// let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
@@ -447,7 +445,6 @@ jQuery(document).ready(function() {
 						})
 			
 						$('.active-chat textarea').on('focus', function(){
-							$('.active-chat').addClass('openKeyboard')
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
 								$('.heightChat').remove()
