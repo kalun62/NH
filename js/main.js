@@ -445,7 +445,7 @@ jQuery(document).ready(function() {
 								}	
 								$('.heightChat').remove()
 								// let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
-								let heightChat = window.innerHeight
+								let heightChat = $(window).height()
 								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute">${heightChat}</div>`))
 								setTimeout(() => {
 									$('.chat-wrapper').attr('style', '')
@@ -472,7 +472,7 @@ jQuery(document).ready(function() {
 									let iphone_height = $(window).height()
 
 									setTimeout(() => {
-										(iphone_height == 664 || iphone_height == 715 || iphone_height == 635)
+										(iphone_height == 664 || iphone_height == 715 || iphone_height == 635 ||  iphone_height == 719)
 										? $('.openKeyboard').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
 										: $('.openKeyboard').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
 									})
@@ -483,7 +483,7 @@ jQuery(document).ready(function() {
 								$('.bx-im-dialog-scroll-button').click()
 								$('.heightChat').remove()
 								// let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
-								let heightChat = window.innerHeight
+								let heightChat = $(window).height()
 								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute">${heightChat}</div>`))
 							},200)
 						})
