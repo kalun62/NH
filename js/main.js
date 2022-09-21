@@ -459,10 +459,11 @@ jQuery(document).ready(function() {
 									let iphone_scroll = window.scrollY
 									let iphone_height = $(window).height()
 
-									console.log(iphone_height);
-									setTimeout(() => {
-										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
-									})
+									// setTimeout(() => {
+										([664, 715, 635].includes(iphone_height)) 
+										? $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
+										: $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+									// })
 								}, 500);
 							
 							}
