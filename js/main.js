@@ -460,7 +460,7 @@ jQuery(document).ready(function() {
 									let iphone_height = $(window).height()
 
 									// setTimeout(() => {
-										([664, 715, 635].includes(iphone_height)) 
+										(iphone_height == 664 || iphone_height == 715 || iphone_height == 635)
 										? $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
 										: $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
 									// })
