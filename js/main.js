@@ -442,11 +442,9 @@ jQuery(document).ready(function() {
 								if(is_ipad){
 									$('.active-chat').removeClass('openKeyboard')
 									$('.active-chat').attr('style', '')
+									let heightChat = window.scrollY
+									$('.heightChat').text(heightChat)
 								}	
-								$('.heightChat').remove()
-								// let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
-								let heightChat = $(window).height()
-								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute">${heightChat}</div>`))
 								setTimeout(() => {
 									$('.chat-wrapper').attr('style', '')
 									if($('.wrap-textarea').height() > 52){
@@ -467,6 +465,10 @@ jQuery(document).ready(function() {
 							if(is_ipad){
 								$('.active-chat').addClass('openKeyboard')
 
+								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute"></div>`))
+								let heightChat = window.scrollY
+								$('.heightChat').text(heightChat)
+								
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
 									let iphone_height = $(window).height()
@@ -481,14 +483,12 @@ jQuery(document).ready(function() {
 							}
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
-								$('.heightChat').remove()
-								// let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
-								let heightChat = $(window).height()
-								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute">${heightChat}</div>`))
+								// $('.heightChat').remove()
+								// // let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
+								// let heightChat = $(window).height()
+								// $('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute">${heightChat}</div>`))
 							},200)
 						})
-						// $('.active-chat textarea').on('blur', function(){
-						// })
 					}
 
 					$('.bx-im-textarea-input').focus()
