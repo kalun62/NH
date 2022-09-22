@@ -475,9 +475,9 @@ jQuery(document).ready(function() {
 									let iphone_height = $(window).height()
 
 									setTimeout(() => {
-										// (iphone_height == 664 || iphone_height == 715 || iphone_height == 635 ||  iphone_height == 719)
-										// $('.openKeyboard').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
-										$('.openKeyboard').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+										(iphone_height == 664 || iphone_height == 715 || iphone_height == 635 ||  iphone_height == 719)
+										? $('.openKeyboard').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
+										: $('.openKeyboard').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
 									})
 								}, 500);
 							
@@ -492,8 +492,9 @@ jQuery(document).ready(function() {
 						})
 						
 					}
-
+					if(!is_ipad){
 					$('.bx-im-textarea-input').focus()
+					}
 					clearInterval(load)
 				}
 			},100)	
