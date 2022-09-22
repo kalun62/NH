@@ -469,15 +469,22 @@ jQuery(document).ready(function() {
 								let heightChat = window.scrollY
 								$('.heightChat').text(heightChat)
 								
+								if(is_ipad){
+								$('.active-chat').addClass('openKeyboard')
+
+								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute"></div>`))
+								let heightChat = window.scrollY
+								$('.heightChat').text(heightChat)
+								
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
 									let iphone_height = $(window).height()
-									$('.openKeyboard').scrollTop(-85)
-									// setTimeout(() => {
-									// 	(iphone_height == 664 || iphone_height == 715 || iphone_height == 635 ||  iphone_height == 719)
-									// 	? $('.openKeyboard').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
-									// 	: $('.openKeyboard').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
-									// })
+
+									setTimeout(() => {
+										(iphone_height == 664 || iphone_height == 715 || iphone_height == 635 ||  iphone_height == 719)
+										// ? $('.openKeyboard').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
+										$('.openKeyboard').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+									})
 								}, 500);
 							
 							}
