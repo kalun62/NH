@@ -511,9 +511,9 @@ jQuery(document).ready(function() {
 						})
 						
 					}
-					if(!is_ipad){
+					//if(!is_ipad){
 					$('.bx-im-textarea-input').focus()
-					}
+					//}
 					clearInterval(load)
 				}
 			},100)	
