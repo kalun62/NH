@@ -477,6 +477,8 @@ jQuery(document).ready(function() {
 									setTimeout(() => {
 										console.log('iphone_height:', iphone_height);
 										console.log('iphone_height*.9:', iphone_height*.9);
+										console.log('iphone_scroll:', iphone_scroll);
+
 										(iphone_height == 664 || iphone_height == 715 || iphone_height == 635 ||  iphone_height == 719)
 										? $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
 										: $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
