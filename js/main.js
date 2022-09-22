@@ -487,7 +487,8 @@ jQuery(document).ready(function() {
 										console.log('iphone_scroll:', iphone_scroll);
 										(iphone_height == 664 || iphone_height == 635 ||  iphone_height == 719)
 											? $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
-											: (iphone_height == 715 && iphone_width == 414)
+											: (iphone_height == 715 && iphone_width == 414 || iphone_height == 719 && iphone_width == 414)
+
 											? $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
 											: $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
 									})
