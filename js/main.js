@@ -440,7 +440,6 @@ jQuery(document).ready(function() {
 								}, 500);
 							}else{
 								if(is_ipad){
-									$('.active-chat').removeClass('openKeyboard')
 									$('.active-chat').attr('style', '')
 								}	
 								$('.heightChat').remove()
@@ -465,7 +464,6 @@ jQuery(document).ready(function() {
 						$('.active-chat textarea').on('focus', function(){
 							
 							if(is_ipad){
-								$('.active-chat').addClass('openKeyboard')
 								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute"></div>`))
 								let heightChat = window.scrollY
 								$('.heightChat').text(heightChat)
@@ -473,12 +471,19 @@ jQuery(document).ready(function() {
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
 									let iphone_height = $(window).height()
-
+	//---------// SAFARI // -------------
+// iphone 13, 
+// 13 pro(сделать без умнжения на .9)(664px не правильное отображение), 
+// iphone 11 (715px) w414/ h 715 убрать умнжение на .9
+//  ХR (719px)
+// 13 mini, 12, 11pro,  XS(норм)
+// iphone 8 норм но не открывается клавиатура после закрытия окна
+// 12 pro (664px странно )
+// SE не работает кнопка закрытия, отображение норм
 									setTimeout(() => {
 										console.log('iphone_height:', iphone_height);
 										console.log('iphone_height*.9:', iphone_height*.9);
 										console.log('iphone_scroll:', iphone_scroll);
-
 										(iphone_height == 664 || iphone_height == 715 || iphone_height == 635 ||  iphone_height == 719)
 										? $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
 										: $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
