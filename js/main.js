@@ -475,22 +475,28 @@ jQuery(document).ready(function() {
 	//---------// SAFARI // -------------
 // iphone 13, 
 // 13 pro(сделать без умнжения на .9)(664px не правильное отображение), 
-// iphone 11 (715px) w414/ h 715 убрать умнжение на .9
-// ХR (719px)
-// 13 mini, 12, 11pro,  XS(норм)
-// iphone 8 норм но не открывается клавиатура после закрытия окна
+// iphone 11 (715px) w414/ h 715 убрать умнжение на .9 						!!! готово!!!
+// ХR (719px)                                                            !!! готово !!!
+// 11 pro max 414 h 719 убрать умножение на .9
+// 13 mini, 
+// 12 h 664 w 390 убрать на .9
+// 11pro,  (норм)
+// XS w635 h375 убрать на .9
+// iphone 8 норм но не открывается клавиатура после закрытия окна, (проверить, сключается display none)
 // 12 pro (664px странно )
 // SE не работает кнопка закрытия, отображение норм
 									setTimeout(() => {
 										console.log('iphone_height:', iphone_height);
 										console.log('iphone_height*.9:', iphone_height*.9);
 										console.log('iphone_scroll:', iphone_scroll);
-										(iphone_height == 664 || iphone_height == 635 ||  iphone_height == 719)
-											? $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
-											: (iphone_height == 715 && iphone_width == 414 || iphone_height == 719 && iphone_width == 414)
 
-											? $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
-											: $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+										// (iphone_height == 664 || iphone_height == 635 ||  iphone_height == 719)
+										// 	? $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
+										// 	: (iphone_height == 715 && iphone_width == 414 
+										// 		|| iphone_height == 719 && iphone_width == 414 
+										// 		|| iphone_height == 635 && iphone_width == 375)
+											$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+											// : $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
 									})
 								}, 500);
 							
