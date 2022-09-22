@@ -5,6 +5,7 @@
 	/* bottom: 40px; */
 	right: 0;
 	height: 90% !important;
+	transition: all .3s;
 }
 
 .active-chat.openKeyboard{

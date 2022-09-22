@@ -471,11 +471,12 @@ jQuery(document).ready(function() {
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
 									let iphone_height = $(window).height()
+									let iphone_width = $(window).width()
 	//---------// SAFARI // -------------
 // iphone 13, 
 // 13 pro(сделать без умнжения на .9)(664px не правильное отображение), 
 // iphone 11 (715px) w414/ h 715 убрать умнжение на .9
-//  ХR (719px)
+// ХR (719px)
 // 13 mini, 12, 11pro,  XS(норм)
 // iphone 8 норм но не открывается клавиатура после закрытия окна
 // 12 pro (664px странно )
@@ -484,9 +485,11 @@ jQuery(document).ready(function() {
 										console.log('iphone_height:', iphone_height);
 										console.log('iphone_height*.9:', iphone_height*.9);
 										console.log('iphone_scroll:', iphone_scroll);
-										(iphone_height == 664 || iphone_height == 715 || iphone_height == 635 ||  iphone_height == 719)
-										? $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
-										: $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+										(iphone_height == 664 || iphone_height == 635 ||  iphone_height == 719)
+											? $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
+											: (iphone_height == 715 && iphone_width == 414)
+											? $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+											: $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
 									})
 								}, 500);
 							
