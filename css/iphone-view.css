@@ -1,16 +1,11 @@
 .active-chat{
-	position: absolute !important;
+	position: absolute;
 	left: 0;
-	top: -85px !important;
+	top: -85px;
 	/* bottom: 40px; */
 	right: 0;
-	height: 90% !important;
+	height: 90%;
 	transition: all .3s;
-}
-
-.active-chat.openKeyboard{
-	/* top: 215px !important; */
-	height: 55% !important;
 }
 
 .active-chat-button{

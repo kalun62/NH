@@ -446,14 +446,14 @@ jQuery(document).ready(function() {
 									let iphone_scroll = window.scrollY
 									let iphone_height = $(window).height()
 									setTimeout(() => {
-										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px; height: ${iphone_height - iphone_scroll}px`)
 									})
 								}, 500);
 							
 							}
-							// setTimeout(()=> {
-							// 	$('.bx-im-dialog-scroll-button').click()
-							// },200)
+							setTimeout(()=> {
+								$('.bx-im-dialog-scroll-button').click()
+							},200)
 						})
 
 						$('.active-chat textarea').on('input', function(){
