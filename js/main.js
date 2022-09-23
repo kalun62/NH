@@ -438,7 +438,7 @@ jQuery(document).ready(function() {
 							}
 						})
 						
-						$('.active-chat textarea').on('focus', function(){
+						$('.active-chat textarea').on('click', function(){
 							
 							if(is_ipad){
 								console.log('фокус на active-chat textarea');
@@ -527,9 +527,7 @@ jQuery(document).ready(function() {
 
 					$('#contact-form_input').hide()
 					
-					if(!is_ipad){
-						$('.bx-im-textarea-input').focus()
-					}
+					$('.bx-im-textarea-input').focus()
 					clearInterval(load_mess)
 
 					//  отслеживание сообщений  
