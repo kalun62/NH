@@ -396,20 +396,6 @@ jQuery(document).ready(function() {
 							if(!target.closest('.contact-form').classList.contains('active-chat')){
 								openChat = true
 								mobileView()
-
-								// if(is_ipad){
-								// 	console.log('тыкнул не на чат, not active-chat');
-								// 	// $('.active-chat').attr('style', '')
-								// 	setTimeout(() => {
-								// 		let iphone_scroll = window.scrollY
-								// 		let iphone_height = $(window).height()
-	
-								// 		setTimeout(() => {
-								// 			$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
-								// 		})
-								// 	}, 500);
-								
-								// }
 							}
 							if(target.classList.contains('close-chat')){
 								openChat = false
@@ -451,6 +437,24 @@ jQuery(document).ready(function() {
 								}, 500);
 							}
 						})
+						
+						$('.active-chat textarea').on('focus', function(){
+							
+							if(is_ipad){
+								console.log('фокус на active-chat textarea');
+								setTimeout(() => {
+									let iphone_scroll = window.scrollY
+									let iphone_height = $(window).height()
+									setTimeout(() => {
+										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+									})
+								}, 500);
+							
+							}
+							setTimeout(()=> {
+								$('.bx-im-dialog-scroll-button').click()
+							},200)
+						})
 
 						$('.active-chat textarea').on('input', function(){
 							this.style.height = 30 + 'px' 
@@ -478,29 +482,13 @@ jQuery(document).ready(function() {
 // iphone ХR 414/719	 	- все норм !!! проверил !!!     
 // SE 2022 					- все норм !!! проверил !!!    
 
-						$('.active-chat textarea').on('focus', function(){
-							
-							if(is_ipad){
-								console.log('фокус на active-chat textarea');
-								setTimeout(() => {
-									let iphone_scroll = window.scrollY
-									let iphone_height = $(window).height()
-									setTimeout(() => {
-										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
-									})
-								}, 500);
-							
-							}
-							setTimeout(()=> {
-								$('.bx-im-dialog-scroll-button').click()
-							},200)
-						})
+						
 						
 					}
-					// if(!is_ipad){
+					if(!is_ipad){
 						$('.bx-im-textarea-input').focus()
 						console.log('фокус');
-					// }
+					}
 					clearInterval(load)
 				}
 			},100)	
@@ -539,7 +527,9 @@ jQuery(document).ready(function() {
 
 					$('#contact-form_input').hide()
 					
-					$('.bx-im-textarea-input').focus()
+					if(!is_ipad){
+						$('.bx-im-textarea-input').focus()
+					}
 					clearInterval(load_mess)
 
 					//  отслеживание сообщений  
