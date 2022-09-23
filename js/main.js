@@ -444,7 +444,7 @@ jQuery(document).ready(function() {
 						$('.active-chat textarea').on('focus', function(e){
 							
 							if(is_ipad){
-								console.log('фокус на active-chat textarea');
+								e.preventDefault()
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
 									let iphone_height = $(window).height()
