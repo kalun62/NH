@@ -446,7 +446,7 @@ jQuery(document).ready(function() {
 									let iphone_scroll = window.scrollY
 									let iphone_height = $(window).height()
 									setTimeout(() => {
-										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px; height: ${iphone_height - iphone_scroll}px`)
+										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
 									})
 								}, 500);
 							
