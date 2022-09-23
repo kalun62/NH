@@ -391,10 +391,14 @@ jQuery(document).ready(function() {
 
 						$('.contact-form').click((e) => {
 							let target = e.target
-							console.log(target);
+							
 							if(!target.closest('.contact-form').classList.contains('active-chat')){
 								openChat = true
 								mobileView()
+								if(is_ipad){
+									console.log('тыкнул кудато не на active-chat');
+									$('.active-chat').attr('style', '')
+								}	
 							}
 							if(target.classList.contains('close-chat')){
 								openChat = false
