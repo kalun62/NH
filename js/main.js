@@ -398,6 +398,7 @@ jQuery(document).ready(function() {
 								mobileView()
 
 								if(is_ipad){
+									console.log('тыкнул не на чат, not active-chat');
 									$('.active-chat').attr('style', '')
 									setTimeout(() => {
 										let iphone_scroll = window.scrollY
@@ -413,6 +414,7 @@ jQuery(document).ready(function() {
 							if(target.classList.contains('close-chat')){
 								openChat = false
 								$('.active-chat').appendTo('.main-block')
+
 								if(is_ipad){
 									$('.active-chat').attr('style', '')
 								}	
@@ -430,8 +432,7 @@ jQuery(document).ready(function() {
 							}
 							
 							if(target.closest('.wrap-textarea')){
-								$('.active-chat').attr('style', '')
-
+								console.log('тыкнул на wrap-textarea');
 								setTimeout(() => {
 									if($('.wrap-textarea').height() > 52){
 										resizeChat()
@@ -439,10 +440,10 @@ jQuery(document).ready(function() {
 								}, 500);
 							}else{
 								if(is_ipad){
+									console.log('тыкнул кудато не на wrap-textarea');
 									$('.active-chat').attr('style', '')
 								}	
 								setTimeout(() => {
-									$('.chat-wrapper').attr('style', '')
 									if($('.wrap-textarea').height() > 52){
 										resizeChat()
 									}
@@ -479,15 +480,12 @@ jQuery(document).ready(function() {
 						$('.active-chat textarea').on('focus', function(){
 							
 							if(is_ipad){
-								
+								console.log('фокус на active-chat textarea');
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
 									let iphone_height = $(window).height()
 									setTimeout(() => {
-										console.log('iphone_height:', iphone_height);
-										console.log('iphone_height*.9:', iphone_height*.9);
-										console.log('iphone_scroll:', iphone_scroll);
-											$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
 									})
 								}, 500);
 							
@@ -500,6 +498,7 @@ jQuery(document).ready(function() {
 					}
 					if(!is_ipad){
 						$('.bx-im-textarea-input').focus()
+						console.log('фокус');
 					}
 					clearInterval(load)
 				}
