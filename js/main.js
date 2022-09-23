@@ -375,10 +375,9 @@ jQuery(document).ready(function() {
 							
 							closeBtn.css('display', 'block')
 							$('.button-input').addClass('active-chat-button').text('')
-							$('.button-input').append($('<img src="image/send-button.svg">'))
+											  .append($('<img src="image/send-button.svg">'))
 
-							$('.bx-im-textarea').append($('.button-input'))
-							$('.bx-im-textarea').append($('.volume'))
+							$('.bx-im-textarea').append($('.button-input'), $('.volume'))
 
 							setTimeout(() => {
 								$('.bx-im-textarea').append($('.bx-im-textarea-app-file'))
@@ -438,9 +437,10 @@ jQuery(document).ready(function() {
 							}
 						})
 						
-						$('.active-chat textarea').on('focus', function(){
+						$('.active-chat textarea').on('focus', function(e){
 							
 							if(is_ipad){
+								e.preventDefault()
 								console.log('фокус на active-chat textarea');
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
