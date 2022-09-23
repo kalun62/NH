@@ -363,9 +363,7 @@ jQuery(document).ready(function() {
 								$('.active-chat textarea').height(30)
 							}
 						})
-//поменять высоту блока при открывании клавиатуры iphone js contact form? просто уезжает наверх
 
-// 664 умножать высоту на .9
 						function mobileView () {
 							$(livechat).prependTo('.chat-wrapper')
 							$('.contact-form').addClass('bx active-chat')
@@ -415,7 +413,6 @@ jQuery(document).ready(function() {
 								openChat = false
 								$('.active-chat').appendTo('.main-block')
 								if(is_ipad){
-									$('.active-chat').removeClass('openKeyboard')
 									$('.active-chat').attr('style', '')
 								}	
 								waveAnimation()
@@ -442,10 +439,6 @@ jQuery(document).ready(function() {
 								if(is_ipad){
 									$('.active-chat').attr('style', '')
 								}	
-								$('.heightChat').remove()
-								// let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
-								let heightChat = $(window).height()
-								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute">${heightChat}</div>`))
 								setTimeout(() => {
 									$('.chat-wrapper').attr('style', '')
 									if($('.wrap-textarea').height() > 52){
@@ -464,27 +457,38 @@ jQuery(document).ready(function() {
 						$('.active-chat textarea').on('focus', function(){
 							
 							if(is_ipad){
-								$('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute"></div>`))
-								let heightChat = window.scrollY
-								$('.heightChat').text(heightChat)
 								
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
 									let iphone_height = $(window).height()
 									let iphone_width = $(window).width()
 	//---------// SAFARI // -------------
-// iphone 13, 
-// 13 pro(сделать без умнжения на .9)(664px не правильное отображение), 
-// iphone 11 (715px) w414/ h 715 убрать умнжение на .9 						!!! готово!!!
-// ХR (719px)                                                            !!! готово !!!
-// 11 pro max 414 h 719 убрать умножение на .9
-// 13 mini, 
-// 12 h 664 w 390 убрать на .9
-// 11pro,  (норм)
-// XS w635 h375 убрать на .9
-// iphone 8 норм но не открывается клавиатура после закрытия окна, (проверить, сключается display none)
-// 12 pro (664px странно )
-// SE не работает кнопка закрытия, отображение норм
+// ПРОВЕРИТЬ !!! клавиаутра глючит полсе нажатия на textarea !!!
+
+// iphone 13 390/664		- все норм !!! проверил !!! 
+// 13 pro	 390/664		- все норм !!! проверил !!!
+// 13 mini 375/629 			- все норм !!! проверил !!! 
+// 12 390/664 				- все норм !!! проверил !!!
+// 12 pro 					-
+// 12 mini    				- 
+// iphone 11(15)414/715 	- все норм !!! проверил !!!
+// iphone 11(14) 			- норм, но иногда глючит клавиатура, не открывается
+// 11 pro max(14)414/719	- норм, но иногда глючит клавиатура, не открывается
+// 11 pro max(16)414/719	- все норм !!! проверил !!!
+// iphone 8 				- все норм !!! проверил !!!
+// iphone XS 375/635 		- все норм !!! проверил !!!
+// iphone XS(15) 375/635	- все норм !!! проверил !!!
+// iphone ХR 414/719	 	- все норм !!! проверил !!!     
+// SE 2022 					- все норм !!! проверил !!!                         
+
+
+
+
+// 11pro      				- 
+
+
+
+
 									setTimeout(() => {
 										console.log('iphone_height:', iphone_height);
 										console.log('iphone_height*.9:', iphone_height*.9);
@@ -503,17 +507,13 @@ jQuery(document).ready(function() {
 							}
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
-								// $('.heightChat').remove()
-								// // let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80
-								// let heightChat = $(window).height()
-								// $('.messengers_wrap').prepend($(`<div class="heightChat" style="position:absolute">${heightChat}</div>`))
 							},200)
 						})
 						
 					}
-					//if(!is_ipad){
-					$('.bx-im-textarea-input').focus()
-					//}
+					if(!is_ipad){
+						$('.bx-im-textarea-input').focus()
+					}
 					clearInterval(load)
 				}
 			},100)	
