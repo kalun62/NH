@@ -430,7 +430,8 @@ jQuery(document).ready(function() {
 							}
 							
 							if(target.closest('.wrap-textarea')){
-								$('.chat-wrapper').attr('style', '')
+								$('.active-chat').attr('style', '')
+
 								setTimeout(() => {
 									if($('.wrap-textarea').height() > 52){
 										resizeChat()
