@@ -451,9 +451,9 @@ jQuery(document).ready(function() {
 								}, 500);
 							
 							}
-							setTimeout(()=> {
-								$('.bx-im-dialog-scroll-button').click()
-							},200)
+							// setTimeout(()=> {
+							// 	$('.bx-im-dialog-scroll-button').click()
+							// },200)
 						})
 
 						$('.active-chat textarea').on('input', function(){
