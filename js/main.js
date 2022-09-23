@@ -397,19 +397,19 @@ jQuery(document).ready(function() {
 								openChat = true
 								mobileView()
 
-								if(is_ipad){
-									console.log('тыкнул не на чат, not active-chat');
-									$('.active-chat').attr('style', '')
-									setTimeout(() => {
-										let iphone_scroll = window.scrollY
-										let iphone_height = $(window).height()
+								// if(is_ipad){
+								// 	console.log('тыкнул не на чат, not active-chat');
+								// 	// $('.active-chat').attr('style', '')
+								// 	setTimeout(() => {
+								// 		let iphone_scroll = window.scrollY
+								// 		let iphone_height = $(window).height()
 	
-										setTimeout(() => {
-											$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
-										})
-									}, 500);
+								// 		setTimeout(() => {
+								// 			$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+								// 		})
+								// 	}, 500);
 								
-								}
+								// }
 							}
 							if(target.classList.contains('close-chat')){
 								openChat = false
@@ -435,13 +435,6 @@ jQuery(document).ready(function() {
 								console.log('тыкнул на wrap-textarea');
 								
 								setTimeout(() => {
-									if(is_ipad){
-										let iphone_scroll = window.scrollY
-										let iphone_height = $(window).height()
-										setTimeout(() => {
-											$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
-										})
-									}
 									if($('.wrap-textarea').height() > 52){
 										resizeChat()
 									}
