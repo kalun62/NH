@@ -391,7 +391,7 @@ jQuery(document).ready(function() {
 
 						$('.contact-form').click((e) => {
 							let target = e.target
-
+							console.log(target);
 							if(!target.closest('.contact-form').classList.contains('active-chat')){
 								openChat = true
 								mobileView()
@@ -440,7 +440,6 @@ jQuery(document).ready(function() {
 						$('.active-chat textarea').on('focus', function(e){
 							
 							if(is_ipad){
-								e.preventDefault()
 								console.log('фокус на active-chat textarea');
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
