@@ -398,6 +398,7 @@ jQuery(document).ready(function() {
 								mobileView()
 
 								if(is_ipad){
+									$('.active-chat').attr('style', '')
 									setTimeout(() => {
 										let iphone_scroll = window.scrollY
 										let iphone_height = $(window).height()
@@ -454,6 +455,26 @@ jQuery(document).ready(function() {
 							resizeChat()
 						})
 			
+							//---------// SAFARI // -------------
+// ПРОВЕРИТЬ !!! клавиаутра глючит полсе нажатия на textarea !!!
+
+// iphone 13 390/664		- все норм !!! проверил !!! 
+// 13 pro	 390/664		- все норм !!! проверил !!!
+// 13 mini 375/629 			- все норм !!! проверил !!! 
+// 12 390/664 				- все норм !!! проверил !!!
+// 12 pro 					- все норм !!! проверил !!!
+// 12 mini    				- все норм !!! проверил !!!
+// iphone 11(15)414/715 	- все норм !!! проверил !!!
+// iphone 11(14) 			- все норм !!! проверил !!!
+// 11 pro max(14)414/719	- все норм !!! проверил !!!
+// 11 pro max(16)414/719	- все норм !!! проверил !!!
+// 11pro      				- 
+// iphone 8 				- все норм !!! проверил !!!
+// iphone XS 375/635 		- все норм !!! проверил !!!
+// iphone XS(15) 375/635	- все норм !!! проверил !!!
+// iphone ХR 414/719	 	- все норм !!! проверил !!!     
+// SE 2022 					- все норм !!! проверил !!!    
+
 						$('.active-chat textarea').on('focus', function(){
 							
 							if(is_ipad){
@@ -461,46 +482,11 @@ jQuery(document).ready(function() {
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
 									let iphone_height = $(window).height()
-									let iphone_width = $(window).width()
-	//---------// SAFARI // -------------
-// ПРОВЕРИТЬ !!! клавиаутра глючит полсе нажатия на textarea !!!
-
-// iphone 13 390/664		- все норм !!! проверил !!! 
-// 13 pro	 390/664		- все норм !!! проверил !!!
-// 13 mini 375/629 			- все норм !!! проверил !!! 
-// 12 390/664 				- все норм !!! проверил !!!
-// 12 pro 					-
-// 12 mini    				- 
-// iphone 11(15)414/715 	- все норм !!! проверил !!!
-// iphone 11(14) 			- норм, но иногда глючит клавиатура, не открывается
-// 11 pro max(14)414/719	- норм, но иногда глючит клавиатура, не открывается
-// 11 pro max(16)414/719	- все норм !!! проверил !!!
-// iphone 8 				- все норм !!! проверил !!!
-// iphone XS 375/635 		- все норм !!! проверил !!!
-// iphone XS(15) 375/635	- все норм !!! проверил !!!
-// iphone ХR 414/719	 	- все норм !!! проверил !!!     
-// SE 2022 					- все норм !!! проверил !!!                         
-
-
-
-
-// 11pro      				- 
-
-
-
-
 									setTimeout(() => {
 										console.log('iphone_height:', iphone_height);
 										console.log('iphone_height*.9:', iphone_height*.9);
 										console.log('iphone_scroll:', iphone_scroll);
-
-										// (iphone_height == 664 || iphone_height == 635 ||  iphone_height == 719)
-										// 	? $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height * .9 - iphone_scroll}px !important`)
-										// 	: (iphone_height == 715 && iphone_width == 414 
-										// 		|| iphone_height == 719 && iphone_width == 414 
-										// 		|| iphone_height == 635 && iphone_width == 375)
 											$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
-											// : $('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
 									})
 								}, 500);
 							
