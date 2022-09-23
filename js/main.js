@@ -438,7 +438,7 @@ jQuery(document).ready(function() {
 							}
 						})
 						
-						$('.active-chat textarea').on('click', function(){
+						$('.active-chat textarea').on('focus', function(){
 							
 							if(is_ipad){
 								console.log('фокус на active-chat textarea');
