@@ -497,10 +497,10 @@ jQuery(document).ready(function() {
 						})
 						
 					}
-					if(!is_ipad){
+					// if(!is_ipad){
 						$('.bx-im-textarea-input').focus()
 						console.log('фокус');
-					}
+					// }
 					clearInterval(load)
 				}
 			},100)	
