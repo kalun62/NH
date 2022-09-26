@@ -371,6 +371,13 @@ jQuery(document).ready(function() {
 							$('.active-chat').prependTo('body')	
 							document.body.style.position = 'fixed';
 
+							if(is_ipad){
+								let iphone_height = window.innerHeight
+								$('.active-chat').attr('style', '')
+								$('.coverTextarea').remove()
+								$('.active-chat').css('height', `${iphone_height}px !important`)
+							}	
+							
 							$('.mobile-menu-butt, .header-fixed').addClass('display-none')
 							
 							closeBtn.css('display', 'block')
@@ -396,11 +403,8 @@ jQuery(document).ready(function() {
 								openChat = true
 								mobileView()
 								if(is_ipad){
-									let iphone_height = window.outerHeight
 									$('.active-chat').attr('style', '')
 									$('.coverTextarea').remove()
-									console.log(iphone_height);
-									$('.active-chat').css('height', `${iphone_height}px !important`)
 								}	
 							}
 							if(target.classList.contains('close-chat')){
