@@ -355,6 +355,7 @@ jQuery(document).ready(function() {
 					$(livechat_textarea).css('display', 'block')
 
 					if(window.innerWidth < 768){
+						let iphone_height = window.innerHeight
 						
 						$('.bx-im-textarea-input').keydown(function(e){
 							if(e.keyCode == 13 && !e.shiftKey) {
@@ -372,7 +373,6 @@ jQuery(document).ready(function() {
 							document.body.style.position = 'fixed';
 
 							if(is_ipad){
-								let iphone_height = window.innerHeight
 								$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
 							}	
 
@@ -436,7 +436,6 @@ jQuery(document).ready(function() {
 							}else{
 								setTimeout(() => {
 									if(is_ipad){
-										let iphone_height = window.innerHeight
 										$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
 									}	
 									if($('.wrap-textarea').height() > 52){
@@ -451,9 +450,9 @@ jQuery(document).ready(function() {
 							if(is_ipad){
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
-									let iphone_height = $(window).height()
+									// let iphone_window_height = $(window).height()
 									setTimeout(() => {
-										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height}px !important`)
 									})
 								}, 500);
 							
