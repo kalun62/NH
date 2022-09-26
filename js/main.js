@@ -334,8 +334,11 @@ jQuery(document).ready(function() {
 
 
 	if(is_safari){
-		$('<link rel="stylesheet" type="text/css" href="css/iphone-view.css" />').appendTo('head');
-		$('<script type="text/javascript" src="js/iphone-view.js"></script>').appendTo('body');
+		$('<link rel="stylesheet" type="text/css" href="css/safari-view.css" />').appendTo('head');
+	}
+
+	if(is_chrome){
+		$('<link rel="stylesheet" type="text/css" href="css/iphone-chrome-view.css" />').appendTo('head');
 	}
 	
 	const closeBtn = $('<span class="close-chat"></span>')
