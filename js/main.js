@@ -450,7 +450,8 @@ jQuery(document).ready(function() {
 							if(is_ipad){
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
-									// let iphone_window_height = $(window).height()
+									// let iphone_height = $(window).height()
+									iphone_height = window.innerHeight
 									setTimeout(() => {
 										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height}px !important`)
 									})
