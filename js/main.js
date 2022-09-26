@@ -373,7 +373,11 @@ jQuery(document).ready(function() {
 							document.body.style.position = 'fixed';
 
 							if(is_ipad){
-								$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
+								if(window.innerWidth === 375){
+									$('.active-chat').attr('style', '')
+								}else{
+									$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
+								}
 							}	
 
 							$('.mobile-menu-butt, .header-fixed').addClass('display-none')
@@ -437,7 +441,11 @@ jQuery(document).ready(function() {
 								if(is_ipad){
 									$('.active-chat').attr('style', '')
 										setTimeout(() =>{
-											$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
+											if(window.innerWidth === 375){
+												$('.active-chat').attr('style', '')
+											}else{
+												$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
+											}
 										})
 								}	
 								setTimeout(() => {
@@ -485,11 +493,11 @@ jQuery(document).ready(function() {
 // 11 pro max(14)414/719	- все норм !!! проверил !!!	
 // 11 pro max(16)414/719	- все норм !!! проверил !!! 90%
 // 11pro      				- 
-// iphone 8 				- все норм !!! проверил !!!	88% 
-// iphone XS(14) 375/635 	- все норм !!! проверил !!! 86%
+// iphone 8 				- все норм !!! проверил !!!	88% !! провериить innerheight не сходиться
+// iphone XS(14) 375/635 	- все норм !!! проверил !!! 86%    провериить innerheight не сходиться
 // iphone XS(15) 375/635	- все норм !!! проверил !!!	89%
 // iphone ХR(15)414/719	 	- все норм !!! проверил !!! 90%  
-// SE 2022 (15)				- все норм !!! проверил !!! 88%   
+// SE 2022 (15)	375/548		- все норм !!! проверил !!! 88%   провериить innerheight не сходиться(сделать высоту 88%)
 
 						
 						
