@@ -436,6 +436,7 @@ jQuery(document).ready(function() {
 							}else{
 								setTimeout(() => {
 									if(is_ipad){
+										console.log(iphone_height);
 										$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
 									}	
 									if($('.wrap-textarea').height() > 52){
@@ -450,10 +451,9 @@ jQuery(document).ready(function() {
 							if(is_ipad){
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
-									// let iphone_height = $(window).height()
-									iphone_height = window.innerHeight
+									let iphone_window_height = $(window).height()
 									setTimeout(() => {
-										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height}px !important`)
+										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_window_height - iphone_scroll}px !important`)
 									})
 								}, 500);
 							
