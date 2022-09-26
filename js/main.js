@@ -396,9 +396,12 @@ jQuery(document).ready(function() {
 								openChat = true
 								mobileView()
 								if(is_ipad){
-									console.log('тыкнул кудато не на active-chat');
 									$('.active-chat').attr('style', '')
 									$('.coverTextarea').remove()
+									let iphone_height = window.outerHeight
+									setTimeout(() => {
+										$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
+									})
 								}	
 							}
 							if(target.classList.contains('close-chat')){
@@ -423,7 +426,6 @@ jQuery(document).ready(function() {
 							}
 							
 							if(target.closest('.wrap-textarea')){
-								console.log('тыкнул на wrap-textarea');
 								
 								setTimeout(() => {
 									if($('.wrap-textarea').height() > 52){
@@ -432,7 +434,6 @@ jQuery(document).ready(function() {
 								}, 500);
 							}else{
 								if(is_ipad){
-									console.log('тыкнул кудато не на wrap-textarea');
 									$('.active-chat').attr('style', '')
 								}	
 								setTimeout(() => {
@@ -471,27 +472,26 @@ jQuery(document).ready(function() {
 
 // iphone 13 390/664		- все норм !!! проверил !!! 90%
 // 13 pro	 390/664		- все норм !!! проверил !!! 90%
-// 13 mini 375/629 			- все норм !!! проверил !!! 
-// 12 390/664 				- все норм !!! проверил !!!			клавиатура открывается 14ios
-// 12 pro 					- все норм !!! проверил !!!
-// 12 mini    				- все норм !!! проверил !!!			клава не работает
-// iphone 11(15)414/715 	- все норм !!! проверил !!!
-// iphone 11(14) 			- все норм !!! проверил !!!
-// 11 pro max(14)414/719	- все норм !!! проверил !!!
-// 11 pro max(16)414/719	- все норм !!! проверил !!!
+// 13 mini 	 375/629 		- все норм !!! проверил !!! 89% можно 90%
+// 12 		 390/664 		- все норм !!! проверил !!!	86%		
+// 12 pro 					- все норм !!! проверил !!! 86%
+// 12 mini   375/629		- все норм !!! проверил !!!	89%	
+// iphone 11(15)414/715 	- все норм !!! проверил !!! 90%
+// iphone 11(14)414/715 	- все норм !!! проверил !!!	87%
+// 11 pro max(14)414/719	- все норм !!! проверил !!!	
+// 11 pro max(16)414/719	- все норм !!! проверил !!! 90%
 // 11pro      				- 
-// iphone 8 				- все норм !!! проверил !!!
-// iphone XS 375/635 		- все норм !!! проверил !!!
-// iphone XS(15) 375/635	- все норм !!! проверил !!!	  85% ок
-// iphone ХR 414/719	 	- все норм !!! проверил !!!   90%  
-// SE 2022 					- все норм !!! проверил !!!    
+// iphone 8 				- все норм !!! проверил !!!	88% 
+// iphone XS(14) 375/635 	- все норм !!! проверил !!! 86%
+// iphone XS(15) 375/635	- все норм !!! проверил !!!	89%
+// iphone ХR(15)414/719	 	- все норм !!! проверил !!! 90%  
+// SE 2022 (15)				- все норм !!! проверил !!! 88%   
 
 						
 						
 					}
 					if(!is_ipad){
 						$('.bx-im-textarea-input').focus()
-						console.log('фокус');
 					}
 					clearInterval(load)
 				}
