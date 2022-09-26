@@ -434,9 +434,10 @@ jQuery(document).ready(function() {
 									}
 								}, 500);
 							}else{
+								$('.active-chat').attr('style', '')
 								setTimeout(() => {
 									if(is_ipad){
-										console.log(iphone_height);
+				
 										$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
 									}	
 									if($('.wrap-textarea').height() > 52){
