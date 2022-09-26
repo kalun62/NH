@@ -396,12 +396,11 @@ jQuery(document).ready(function() {
 								openChat = true
 								mobileView()
 								if(is_ipad){
+									let iphone_height = window.outerHeight
 									$('.active-chat').attr('style', '')
 									$('.coverTextarea').remove()
-									let iphone_height = window.outerHeight
-									setTimeout(() => {
-										$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
-									})
+									console.log(iphone_height);
+									$('.active-chat').css('height', `${iphone_height}px !important`)
 								}	
 							}
 							if(target.classList.contains('close-chat')){
