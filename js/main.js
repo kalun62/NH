@@ -461,16 +461,6 @@ jQuery(document).ready(function() {
 						}else{
 							$('.active-chat textarea').on('focus', function(e){
 							
-								if(is_ipad){
-									setTimeout(() => {
-										let iphone_scroll = window.scrollY
-										let iphone_height = $(window).height()
-										setTimeout(() => {
-											$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
-										})
-									}, 500);
-								
-								}
 								setTimeout(()=> {
 									$('.bx-im-dialog-scroll-button').click()
 								},200)
