@@ -398,6 +398,7 @@ jQuery(document).ready(function() {
 								if(is_ipad){
 									console.log('тыкнул кудато не на active-chat');
 									$('.active-chat').attr('style', '')
+									$('.active-chat').addClass('openKeyBoard')
 								}	
 							}
 							if(target.classList.contains('close-chat')){
@@ -406,6 +407,8 @@ jQuery(document).ready(function() {
 
 								if(is_ipad){
 									$('.active-chat').attr('style', '')
+									$('.active-chat').removeClass('openKeyBoard')
+
 								}	
 								waveAnimation()
 								$('.contact-form').removeClass('active-chat')
@@ -441,24 +444,39 @@ jQuery(document).ready(function() {
 							}
 						})
 						
-						$('.active-chat textarea').on('focus', function(e){
-							
-							if(is_ipad){
-								$('.active-chat').attr('style', '')
-								$('.bx-im-textarea-input').focus()
-								setTimeout(() => {
-									let iphone_scroll = window.scrollY
-									let iphone_height = $(window).height()
+						if(is_ipad){
+							$('.openKeyBoard textarea').on('focus', function(e){
 									setTimeout(() => {
-										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
-									})
-								}, 500);
+										let iphone_scroll = window.scrollY
+										let iphone_height = $(window).height()
+										setTimeout(() => {
+											$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+										})
+									}, 500);
+								
+								setTimeout(()=> {
+									$('.bx-im-dialog-scroll-button').click()
+								},200)
+							})
+						}else{
+							$('.active-chat textarea').on('focus', function(e){
 							
-							}
-							setTimeout(()=> {
-								$('.bx-im-dialog-scroll-button').click()
-							},200)
-						})
+								if(is_ipad){
+									setTimeout(() => {
+										let iphone_scroll = window.scrollY
+										let iphone_height = $(window).height()
+										setTimeout(() => {
+											$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+										})
+									}, 500);
+								
+								}
+								setTimeout(()=> {
+									$('.bx-im-dialog-scroll-button').click()
+								},200)
+							})
+						}
+						
 
 						$('.active-chat textarea').on('input', function(){
 							this.style.height = 30 + 'px' 
