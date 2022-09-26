@@ -422,9 +422,7 @@ jQuery(document).ready(function() {
 							
 							if(target.closest('.wrap-textarea')){
 								console.log('тыкнул на wrap-textarea');
-								if(is_ipad){
-									document.body.style.position = '';
-								}
+								
 								setTimeout(() => {
 									if($('.wrap-textarea').height() > 52){
 										resizeChat()
