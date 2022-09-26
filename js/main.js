@@ -441,7 +441,8 @@ jQuery(document).ready(function() {
 							}else{
 								if(is_ipad){
 									if(is_chrome){
-										$('.active-chat').css('position', 'fixed')
+										$('.active-chat').attr('style',`height: ${iphone_height}px !important`,'position: fixed')
+
 									}else{
 										$('.active-chat').attr('style', '')
 										setTimeout(() =>{
