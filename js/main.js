@@ -451,7 +451,9 @@ jQuery(document).ready(function() {
 										let iphone_height = $(window).height()
 										setTimeout(() => {
 											$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_height - iphone_scroll}px !important`)
+											console.log('внутренний');
 										})
+										console.log('внешний');
 									}, 500);
 								
 								setTimeout(()=> {
