@@ -373,7 +373,7 @@ jQuery(document).ready(function() {
 
 							if(is_ipad){
 								let iphone_height = window.innerHeight
-								$('.active-chat').css('height', `${iphone_height}px`)
+								$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
 							}	
 
 							$('.mobile-menu-butt, .header-fixed').addClass('display-none')
