@@ -422,7 +422,9 @@ jQuery(document).ready(function() {
 							
 							if(target.closest('.wrap-textarea')){
 								console.log('тыкнул на wrap-textarea');
-								
+								if(is_ipad){
+									document.body.style.position = '';
+								}
 								setTimeout(() => {
 									if($('.wrap-textarea').height() > 52){
 										resizeChat()
@@ -444,7 +446,6 @@ jQuery(document).ready(function() {
 						$('.active-chat textarea').on('focus', function(e){
 							
 							if(is_ipad){
-								e.preventDefault()
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
 									let iphone_height = $(window).height()
@@ -468,8 +469,8 @@ jQuery(document).ready(function() {
 							//---------// SAFARI // -------------
 // ПРОВЕРИТЬ !!! клавиаутра глючит полсе нажатия на textarea !!!
 
-// iphone 13 390/664		- все норм !!! проверил !!! 
-// 13 pro	 390/664		- все норм !!! проверил !!!
+// iphone 13 390/664		- все норм !!! проверил !!! 90%
+// 13 pro	 390/664		- все норм !!! проверил !!! 90%
 // 13 mini 375/629 			- все норм !!! проверил !!! 
 // 12 390/664 				- все норм !!! проверил !!!
 // 12 pro 					- все норм !!! проверил !!!
@@ -481,8 +482,8 @@ jQuery(document).ready(function() {
 // 11pro      				- 
 // iphone 8 				- все норм !!! проверил !!!
 // iphone XS 375/635 		- все норм !!! проверил !!!
-// iphone XS(15) 375/635	- все норм !!! проверил !!!
-// iphone ХR 414/719	 	- все норм !!! проверил !!!     
+// iphone XS(15) 375/635	- все норм !!! проверил !!!	  85% ок
+// iphone ХR 414/719	 	- все норм !!! проверил !!!   90%  
 // SE 2022 					- все норм !!! проверил !!!    
 
 						
