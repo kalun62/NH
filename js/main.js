@@ -440,7 +440,10 @@ jQuery(document).ready(function() {
 								}, 500);
 							}else{
 								if(is_ipad){
-									$('.active-chat').attr('style', '')
+									if(is_chrome){
+										$('.active-chat').css('position', 'fixed')
+									}else{
+										$('.active-chat').attr('style', '')
 										setTimeout(() =>{
 											if(window.innerWidth === 375){
 												$('.active-chat').attr('style', '')
@@ -448,8 +451,6 @@ jQuery(document).ready(function() {
 												$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
 											}
 										})
-									if(is_chrome){
-										$('.active-chat').css('position', 'fixed')
 									}
 								}	
 								setTimeout(() => {
