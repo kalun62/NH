@@ -435,7 +435,8 @@ jQuery(document).ready(function() {
 								}, 500);
 							}else{
 								if(is_ipad){
-									$('.active-chat').attr('style', '')
+									let iphone_height = window.innerHeight
+									$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
 								}	
 								setTimeout(() => {
 									if($('.wrap-textarea').height() > 52){
