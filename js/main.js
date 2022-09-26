@@ -397,8 +397,9 @@ jQuery(document).ready(function() {
 								mobileView()
 								if(is_ipad){
 									console.log('тыкнул кудато не на active-chat');
-									$('.active-chat').attr('style', '')
 									$('.active-chat').addClass('openKeyBoard')
+									$('.active-chat').attr('style', '')
+									
 								}	
 							}
 							if(target.classList.contains('close-chat')){
