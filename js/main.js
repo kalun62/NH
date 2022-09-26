@@ -445,7 +445,7 @@ jQuery(document).ready(function() {
 							
 							if(is_ipad){
 								$('.active-chat').attr('style', '')
-								e.preventDefault()
+								$('.bx-im-textarea-input').focus()
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
 									let iphone_height = $(window).height()
