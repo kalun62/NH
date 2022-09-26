@@ -444,6 +444,7 @@ jQuery(document).ready(function() {
 						$('.active-chat textarea').on('focus', function(e){
 							
 							if(is_ipad){
+								$('.active-chat').attr('style', '')
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
 									let iphone_height = $(window).height()
@@ -470,9 +471,9 @@ jQuery(document).ready(function() {
 // iphone 13 390/664		- все норм !!! проверил !!! 90%
 // 13 pro	 390/664		- все норм !!! проверил !!! 90%
 // 13 mini 375/629 			- все норм !!! проверил !!! 
-// 12 390/664 				- все норм !!! проверил !!!
+// 12 390/664 				- все норм !!! проверил !!!			клавиатура открывается 14ios
 // 12 pro 					- все норм !!! проверил !!!
-// 12 mini    				- все норм !!! проверил !!!
+// 12 mini    				- все норм !!! проверил !!!			клава не работает
 // iphone 11(15)414/715 	- все норм !!! проверил !!!
 // iphone 11(14) 			- все норм !!! проверил !!!
 // 11 pro max(14)414/719	- все норм !!! проверил !!!
