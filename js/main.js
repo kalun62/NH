@@ -330,6 +330,7 @@ jQuery(document).ready(function ($) {
 jQuery(document).ready(function() {	
 
 	let is_ipad = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
+	let is_chrome = /Chrome/g.test( navigator.userAgent );
 
 	if(is_ipad){
 		$('<link rel="stylesheet" type="text/css" href="css/iphone-view.css" />').appendTo('head');
@@ -376,6 +377,9 @@ jQuery(document).ready(function() {
 								if(window.innerWidth === 375){
 									$('.active-chat').attr('style', '')
 								}else{
+									if(is_chrome){
+										console.log('chrome');
+									}
 									$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
 								}
 							}	
