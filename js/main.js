@@ -434,12 +434,13 @@ jQuery(document).ready(function() {
 									}
 								}, 500);
 							}else{
-								$('.active-chat').attr('style', '')
+								if(is_ipad){
+									$('.active-chat').attr('style', '')
+										setTimeout(() =>{
+											$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
+										})
+								}	
 								setTimeout(() => {
-									if(is_ipad){
-				
-										$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
-									}	
 									if($('.wrap-textarea').height() > 52){
 										resizeChat()
 									}
