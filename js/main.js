@@ -332,6 +332,7 @@ jQuery(document).ready(function() {
 	let is_safari = /Safari/g.test( navigator.userAgent );
 	let is_chrome = /Chrome/g.test( navigator.userAgent );
 
+
 	if(is_safari){
 		$('<link rel="stylesheet" type="text/css" href="css/iphone-view.css" />').appendTo('head');
 		$('<script type="text/javascript" src="js/iphone-view.js"></script>').appendTo('body');
@@ -440,10 +441,7 @@ jQuery(document).ready(function() {
 								}, 500);
 							}else{
 								if(is_safari){
-									if(is_chrome){
-										$('.active-chat').attr('style',`height: ${iphone_height}px !important`,'position: fixed')
-									}else{
-										$('.active-chat').attr('style', '')
+									$('.active-chat').attr('style', '')
 										setTimeout(() =>{
 											if(window.innerWidth === 375){
 												$('.active-chat').attr('style', '')
@@ -451,7 +449,6 @@ jQuery(document).ready(function() {
 												$('.active-chat').attr('style',`height: ${iphone_height}px !important`)
 											}
 										})
-									}
 								}	
 								setTimeout(() => {
 									if($('.wrap-textarea').height() > 52){
@@ -471,10 +468,7 @@ jQuery(document).ready(function() {
 										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_window_height - iphone_scroll}px !important`)
 									})
 								}, 500);
-
-								if(is_chrome){
-									$('.active-chat').css('position', '')
-								}
+							
 							}
 							setTimeout(()=> {
 								$('.bx-im-dialog-scroll-button').click()
