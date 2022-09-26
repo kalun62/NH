@@ -329,7 +329,7 @@ jQuery(document).ready(function ($) {
 
 jQuery(document).ready(function() {	
 
-	let is_ipad = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
+	let is_ipad = /Safari/g.test( navigator.userAgent );
 	let is_chrome = /Chrome/g.test( navigator.userAgent );
 
 	if(is_ipad){
