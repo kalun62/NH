@@ -329,10 +329,10 @@ jQuery(document).ready(function ($) {
 
 jQuery(document).ready(function() {	
 
-	let is_ipad = /Safari/g.test( navigator.userAgent );
+	let is_safari = /Safari/g.test( navigator.userAgent );
 	let is_chrome = /Chrome/g.test( navigator.userAgent );
 
-	if(is_ipad){
+	if(is_safari){
 		$('<link rel="stylesheet" type="text/css" href="css/iphone-view.css" />').appendTo('head');
 		$('<script type="text/javascript" src="js/iphone-view.js"></script>').appendTo('body');
 	}
@@ -373,7 +373,7 @@ jQuery(document).ready(function() {
 							$('.active-chat').prependTo('body')	
 							document.body.style.position = 'fixed';
 
-							if(is_ipad){
+							if(is_safari){
 								if(window.innerWidth === 375){
 									$('.active-chat').attr('style', '')
 								}else{
@@ -405,7 +405,7 @@ jQuery(document).ready(function() {
 							if(!target.closest('.contact-form').classList.contains('active-chat')){
 								openChat = true
 								mobileView()
-								if(is_ipad){
+								if(is_safari){
 									$('.active-chat').attr('style', '')
 									$('.coverTextarea').remove()
 								}	
@@ -414,7 +414,7 @@ jQuery(document).ready(function() {
 								openChat = false
 								$('.active-chat').appendTo('.main-block')
 
-								if(is_ipad){
+								if(is_safari){
 									$('.active-chat').attr('style', '')
 									$('.bx-im-textarea-box').append($('<div class="coverTextarea"></div>'))
 								}	
@@ -439,10 +439,9 @@ jQuery(document).ready(function() {
 									}
 								}, 500);
 							}else{
-								if(is_ipad){
+								if(is_safari){
 									if(is_chrome){
 										$('.active-chat').attr('style',`height: ${iphone_height}px !important`,'position: fixed')
-
 									}else{
 										$('.active-chat').attr('style', '')
 										setTimeout(() =>{
@@ -464,7 +463,7 @@ jQuery(document).ready(function() {
 						
 						$('.active-chat textarea').on('focus', function(e){
 							
-							if(is_ipad){
+							if(is_safari){
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
 									let iphone_window_height = $(window).height()
@@ -511,7 +510,7 @@ jQuery(document).ready(function() {
 						
 						
 					}
-					if(!is_ipad){
+					if(!is_safari){
 						$('.bx-im-textarea-input').focus()
 					}
 					clearInterval(load)
