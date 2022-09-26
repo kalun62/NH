@@ -445,6 +445,7 @@ jQuery(document).ready(function() {
 							
 							if(is_ipad){
 								$('.active-chat').attr('style', '')
+								e.preventDefault()
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
 									let iphone_height = $(window).height()
