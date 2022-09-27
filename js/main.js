@@ -330,8 +330,6 @@ jQuery(document).ready(function ($) {
 jQuery(document).ready(function() {	
 
 	let is_ipad = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
-	let is_chrome = /Chrome/g.test( navigator.userAgent );
-
 
 	if(is_ipad){
 		$('<link rel="stylesheet" type="text/css" href="css/iphone-view.css" />').appendTo('head');
@@ -363,6 +361,7 @@ jQuery(document).ready(function() {
 								e.preventDefault()
 								document.querySelector('.bx-im-textarea-send-button').click();
 								$('.active-chat textarea').height(30)
+								$('.chat-wrapper').attr('style', '')
 							}
 						})
 
@@ -417,10 +416,6 @@ jQuery(document).ready(function() {
 
 								if(is_ipad){
 									$('.active-chat').attr('style', '')
-									// if(is_chrome){
-									// 	$('.active-chat').attr('style', 'position: fixed !important')
-									// }
-
 									$('.bx-im-textarea-box').append($('<div class="coverTextarea"></div>'))
 								}	
 								waveAnimation()
@@ -445,9 +440,6 @@ jQuery(document).ready(function() {
 								}, 500);
 							}else{
 								if(is_ipad){
-									// if(is_chrome){
-									// 	$('.active-chat').attr('style', 'position: fixed !important')
-									// }
 									$('.active-chat').attr('style', '')
 										setTimeout(() =>{
 											if(window.innerWidth === 375){
@@ -521,7 +513,6 @@ jQuery(document).ready(function() {
 			$('body').removeClass('bx-livechat-mobile-state')
 			$(livechat).removeClass('bx-livechat-mobile')
 		}
-		
 	})
 
 	function resizeChat(){
