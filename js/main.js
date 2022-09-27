@@ -329,16 +329,13 @@ jQuery(document).ready(function ($) {
 
 jQuery(document).ready(function() {	
 
-	let is_safari = /Safari/g.test( navigator.userAgent );
+	let is_ipad = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
 	let is_chrome = /Chrome/g.test( navigator.userAgent );
 
 
-	if(is_safari){
-		$('<link rel="stylesheet" type="text/css" href="css/safari-view.css" />').appendTo('head');
-	}
-
-	if(is_chrome){
-		$('<link rel="stylesheet" type="text/css" href="css/iphone-chrome-view.css" />').appendTo('head');
+	if(is_ipad){
+		$('<link rel="stylesheet" type="text/css" href="css/iphone-view.css" />').appendTo('head');
+		$('<script type="text/javascript" src="js/iphone-view.js"></script>').appendTo('body');
 	}
 	
 	const closeBtn = $('<span class="close-chat"></span>')
@@ -377,8 +374,7 @@ jQuery(document).ready(function() {
 							$('.active-chat').prependTo('body')	
 							document.body.style.position = 'fixed';
 
-							if(is_safari){
-								console.log('safari');
+							if(is_ipad){
 								if(window.innerWidth === 375){
 									$('.active-chat').attr('style', '')
 								}else{
@@ -410,8 +406,7 @@ jQuery(document).ready(function() {
 							if(!target.closest('.contact-form').classList.contains('active-chat')){
 								openChat = true
 								mobileView()
-								if(is_safari){
-									console.log('safari');
+								if(is_ipad){
 									$('.active-chat').attr('style', '')
 									$('.coverTextarea').remove()
 								}	
@@ -420,8 +415,7 @@ jQuery(document).ready(function() {
 								openChat = false
 								$('.active-chat').appendTo('.main-block')
 
-								if(is_safari){
-									console.log('safari');
+								if(is_ipad){
 									$('.active-chat').attr('style', '')
 									$('.bx-im-textarea-box').append($('<div class="coverTextarea"></div>'))
 								}	
@@ -446,8 +440,7 @@ jQuery(document).ready(function() {
 									}
 								}, 500);
 							}else{
-								if(is_safari){
-									console.log('safari');
+								if(is_ipad){
 									$('.active-chat').attr('style', '')
 										setTimeout(() =>{
 											if(window.innerWidth === 375){
@@ -467,8 +460,7 @@ jQuery(document).ready(function() {
 						
 						$('.active-chat textarea').on('focus', function(e){
 							
-							if(is_safari){
-								console.log('safari');
+							if(is_ipad){
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
 									let iphone_window_height = $(window).height()
@@ -512,8 +504,7 @@ jQuery(document).ready(function() {
 						
 						
 					}
-					if(!is_safari){
-						console.log('safari');
+					if(!is_ipad){
 						$('.bx-im-textarea-input').focus()
 					}
 					clearInterval(load)
