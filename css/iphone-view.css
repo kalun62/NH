@@ -6,9 +6,9 @@
 	height: 88% !important;
 	transition: all .3s;
 }
-body.bx-livechat-mobile-safari-based{
+/* body.bx-livechat-mobile-safari-based{
 	position: fixed !important;
-}
+} */
 
 .active-chat-button{
 	padding: 1px 6px !important;
