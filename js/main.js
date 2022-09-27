@@ -416,6 +416,10 @@ jQuery(document).ready(function() {
 
 								if(is_ipad){
 									$('.active-chat').attr('style', '')
+									if(is_chrome){
+										$('.active-chat').attr('style', 'position: fixed !important')
+									}
+
 									$('.bx-im-textarea-box').append($('<div class="coverTextarea"></div>'))
 								}	
 								waveAnimation()
@@ -441,8 +445,7 @@ jQuery(document).ready(function() {
 							}else{
 								if(is_ipad){
 									if(is_chrome){
-										$('.active-chat').css('bottom', '0')
-
+										$('.active-chat').attr('style', 'position: fixed !important')
 									}
 									$('.active-chat').attr('style', '')
 										setTimeout(() =>{
@@ -465,8 +468,7 @@ jQuery(document).ready(function() {
 							if(is_ipad){
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
-									let iphone_window_height = window.innerHeight
-
+									let iphone_window_height = $(window).height()
 									setTimeout(() => {
 										$('.active-chat').attr('style',`top: ${iphone_scroll - 85}px !important; height: ${iphone_window_height - iphone_scroll}px !important`)
 									})
