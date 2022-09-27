@@ -371,7 +371,7 @@ jQuery(document).ready(function() {
 							$('.contact-form').addClass('bx active-chat')
 							$('body').addClass('no-scroll')
 							$('.active-chat').prependTo('body')	
-							document.body.style.position = 'fixed !important';
+							document.body.style.position = 'fixed';
 
 							if(is_ipad){
 								if(window.innerWidth === 375){
