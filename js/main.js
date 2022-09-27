@@ -378,6 +378,7 @@ jQuery(document).ready(function() {
 							document.body.style.position = 'fixed';
 
 							if(is_safari){
+								console.log('safari');
 								if(window.innerWidth === 375){
 									$('.active-chat').attr('style', '')
 								}else{
@@ -410,6 +411,7 @@ jQuery(document).ready(function() {
 								openChat = true
 								mobileView()
 								if(is_safari){
+									console.log('safari');
 									$('.active-chat').attr('style', '')
 									$('.coverTextarea').remove()
 								}	
@@ -419,6 +421,7 @@ jQuery(document).ready(function() {
 								$('.active-chat').appendTo('.main-block')
 
 								if(is_safari){
+									console.log('safari');
 									$('.active-chat').attr('style', '')
 									$('.bx-im-textarea-box').append($('<div class="coverTextarea"></div>'))
 								}	
@@ -444,6 +447,7 @@ jQuery(document).ready(function() {
 								}, 500);
 							}else{
 								if(is_safari){
+									console.log('safari');
 									$('.active-chat').attr('style', '')
 										setTimeout(() =>{
 											if(window.innerWidth === 375){
@@ -464,6 +468,7 @@ jQuery(document).ready(function() {
 						$('.active-chat textarea').on('focus', function(e){
 							
 							if(is_safari){
+								console.log('safari');
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
 									let iphone_window_height = $(window).height()
@@ -508,6 +513,7 @@ jQuery(document).ready(function() {
 						
 					}
 					if(!is_safari){
+						console.log('safari');
 						$('.bx-im-textarea-input').focus()
 					}
 					clearInterval(load)
