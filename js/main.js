@@ -441,7 +441,8 @@ jQuery(document).ready(function() {
 							}else{
 								if(is_ipad){
 									if(is_chrome){
-										$('.active-chat').scrollTo(0, 0)
+										$('.active-chat').css('bottom', '0')
+
 									}
 									$('.active-chat').attr('style', '')
 										setTimeout(() =>{
