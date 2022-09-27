@@ -411,6 +411,7 @@ jQuery(document).ready(function() {
 								}	
 								$('.bx-im-textarea-input').focus()
 							}
+
 							if(target.classList.contains('close-chat')){
 								openChat = false
 								$('.active-chat').appendTo('.main-block')
@@ -434,7 +435,6 @@ jQuery(document).ready(function() {
 							}
 							
 							if(target.closest('.wrap-textarea')){
-								
 								setTimeout(() => {
 									if($('.wrap-textarea').height() > 52){
 										resizeChat()
@@ -459,7 +459,7 @@ jQuery(document).ready(function() {
 							}
 						})
 						
-						$('.active-chat textarea').on('focus', function(e){
+						$('.active-chat textarea').on('focus', function(){
 							if(is_ipad){
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
