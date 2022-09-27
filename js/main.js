@@ -335,7 +335,6 @@ jQuery(document).ready(function() {
 
 	if(is_ipad){
 		$('<link rel="stylesheet" type="text/css" href="css/iphone-view.css" />').appendTo('head');
-		$('<script type="text/javascript" src="js/iphone-view.js"></script>').appendTo('body');
 	}
 	
 	const closeBtn = $('<span class="close-chat"></span>')
@@ -441,6 +440,9 @@ jQuery(document).ready(function() {
 								}, 500);
 							}else{
 								if(is_ipad){
+									if(is_chrome){
+										$('.active-chat').scrollTo(0, 0)
+									}
 									$('.active-chat').attr('style', '')
 										setTimeout(() =>{
 											if(window.innerWidth === 375){
@@ -459,7 +461,6 @@ jQuery(document).ready(function() {
 						})
 						
 						$('.active-chat textarea').on('focus', function(e){
-							
 							if(is_ipad){
 								setTimeout(() => {
 									let iphone_scroll = window.scrollY
