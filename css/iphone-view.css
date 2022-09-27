@@ -6,7 +6,7 @@
 	height: 88% !important;
 	transition: all .3s;
 }
-.no-scroll{
+body.bx-livechat-mobile-safari-based.fixed{
 	position: fixed !important;
 }
 
