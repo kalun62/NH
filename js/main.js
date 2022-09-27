@@ -413,7 +413,8 @@ jQuery(document).ready(function() {
 							if(target.classList.contains('close-chat')){
 								openChat = false
 								$('.active-chat').appendTo('.main-block')
-
+								$('.chat-wrapper').attr('style', '')
+								
 								if(is_ipad){
 									$('.active-chat').attr('style', '')
 									$('.bx-im-textarea-box').append($('<div class="coverTextarea"></div>'))
