@@ -409,6 +409,7 @@ jQuery(document).ready(function() {
 									$('.active-chat').attr('style', '')
 									$('.coverTextarea').remove()
 								}	
+								$('.bx-im-textarea-input').focus()
 							}
 							if(target.classList.contains('close-chat')){
 								openChat = false
@@ -480,9 +481,7 @@ jQuery(document).ready(function() {
 							resizeChat()
 						})	
 					}
-					// if(!is_ipad){
-						$('.bx-im-textarea-input').focus()
-					// }
+					$('.bx-im-textarea-input').focus()
 					clearInterval(load)
 				}
 			},100)	
