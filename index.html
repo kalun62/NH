@@ -83,13 +83,15 @@
             <div class="contact-form">
                 <div class="chat-wrapper"></div>
                 <div class="messengers_wrap">
-                    <div class="messengers tme">
-                        <a target="_blank" href="https://t.me/nohau"><img src="image/telegram-app.svg" alt="tme"></a>
-                    </div>
-                    <div class="messengers whatsapp">
-                        <a target="_blank"
-                            href="https://api.whatsapp.com/send/?phone=79891659356&text=%22%D0%AF%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0,%20%D0%B4%D0%B8%D0%B0%D0%BB%D0%BE%D0%B3%200000%22"><img
-                                src="image/whatsapp.svg" alt="whatsapp"></a>
+                    <div>
+                        <div class="messengers tme">
+                            <a title="Написать в Telegram" target="_blank" href="https://t.me/nohau"><img src="image/telegram-app.svg" alt="tme"></a>
+                        </div>
+                        <div class="messengers whatsapp">
+                            <a target="_blank" title="Написать в Whatsapp"
+                                href="https://api.whatsapp.com/send/?phone=79891659356&text=%22%D0%AF%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0,%20%D0%B4%D0%B8%D0%B0%D0%BB%D0%BE%D0%B3%200000%22"><img
+                                    src="image/whatsapp.svg" alt="whatsapp"></a>
+                        </div>
                     </div>
                 </div>
 
@@ -544,6 +546,7 @@
             s.src = u + '?' + (Date.now() / 60000 | 0);
             var h = d.getElementsByTagName('script')[0];
             h.parentNode.insertBefore(s, h);
+        // })(window, document, 'https://cdn-ru.bitrix24.ru/b19912514/crm/site_button/loader_2_b7hae0.js');
         })(window, document, 'https://cdn-ru.bitrix24.ru/b19912514/crm/site_button/loader_2_b7hae0.js');
     </script>
 </body>

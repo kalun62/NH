@@ -382,6 +382,26 @@ b {
     font-size: 14px;
     color: #fff ;
 }
+.not_support>div:first-child{
+    justify-content: space-between;
+    display: flex;
+    width: 55%;
+    margin: 0 auto;
+    padding-top: 180px;
+}
+.messengers_wrap.active.not_support::before{
+    content: 'Ваше устройство не поддерживается для прямого общения в чате, но вы можете воспользоваться другими вариантами:';
+    left: 0;
+    top: 120px;
+    width: 80%;
+    margin: 0 auto;
+    float: none;
+    font-size: 18px;
+}
+.not_support .tme.active, .not_support .whatsapp.active, .not_support .write_button{
+    left: 0;
+}
+
 .messengers_wrap.active{
     height: fit-content;
     margin-top: 10px;
@@ -392,7 +412,7 @@ b {
     margin: 0 20px;
     pointer-events: none;
 }
-.tme.active, .whatsapp.active{
+.tme.active, .whatsapp.active, .write_button{
     position: relative;
     left: -100px;
     display: inline-flex;
@@ -403,7 +423,10 @@ b {
     -o-transition: all .4s ease-out;
     -webkit-transition: all .4s ease-out;
 }
-.whatsapp:hover, .tme:hover{
+.write_button{
+    margin-top: 3px;
+}
+.whatsapp:hover, .tme:hover, .write_button:hover{
     transform: scale(1.2);    
 }
 .contact-form .bx-livechat-textarea{
@@ -1261,6 +1284,11 @@ b {
         width: 90%;
         height: 335px;
     }
+    .contact-form.not_support{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .display-none{
         display: none;
     }
@@ -1276,6 +1304,12 @@ b {
         text-align: center;
         z-index: 100 !important;
         padding: 0 !important;
+    }
+    .main-block .messengers_wrap.active.not_support::before{
+        top: 30px;  
+    }
+    .main-block .messengers_wrap.active.not_support>div:first-child{
+        padding-top: 55px;
     }
     .active-chat-button img{
         margin-left: 4px;
@@ -1412,6 +1446,19 @@ b {
     .messengers_wrap.active::before{
         left: 35px;
     }
+    .messengers_wrap.active.not_support::before{
+        content: 'Ваше устройство не поддерживается для прямого общения в чате, но вы можете воспользоваться другими вариантами:';
+        left: 0;
+        top: 150px;
+        width: 70%;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+    .not_support>div:first-child {
+        width: 80%;
+        padding-top: 210px;
+    }
+
     #contact-form_input  {
         height: 216px;
     }
@@ -1420,6 +1467,10 @@ b {
     }
     .contact-form .bx-livechat-textarea{
         margin-top: 30px;
+    }
+    .write_button img{
+        width: 94%;
+        margin-top: 2px;
     }
     .button-input{
         width: 190px;

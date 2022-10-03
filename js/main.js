@@ -347,6 +347,18 @@ jQuery(document).ready(function() {
 		let load_win = document.querySelector('.bx-livechat-loading-window')
 				if($(load_win).length === 0){
 					let livechat = document.querySelector('.bx-livechat-wrapper')
+					if(!livechat){
+						$('.volume, .button-input').css('display', 'none')
+						$('.messengers_wrap, .tme, .whatsapp').addClass('active')
+						$('.messengers_wrap.active, .contact-form').addClass('not_support')
+						$('.chat-wrapper').append($('.messengers_wrap'))
+						$('.messengers_wrap.active.not_support>div').append($(`<div class="messengers write_button">
+                        		<a target="_blank" title="Написать сообщение"
+                            	href="#"><img src="image/write_button.svg" alt="message"></a></div>
+						`))
+						// $('.contact-form').css({'display':'flex', 'justify-content':'center', 'align-items':'center'})
+						
+					}
 					let livechat_textarea = document.querySelector('.bx-livechat-textarea')
 					$(livechat).css('display', 'block')
 					$(livechat).prependTo('.chat-wrapper')
@@ -410,12 +422,18 @@ jQuery(document).ready(function() {
 									$('.coverTextarea').remove()
 								}	
 								$('.bx-im-textarea-input').focus()
+
+								if($('.messengers_wrap').hasClass('not_support')){
+									$('.contact-form').addClass('not_support')
+									$('.bx-im-textarea-input').blur()
+								}
 							}
 
 							if(target.classList.contains('close-chat')){
 								openChat = false
 								$('.active-chat').appendTo('.main-block')
 								$('.chat-wrapper').attr('style', '')
+								$('.contact-form').removeClass('not_support')
 
 								if(is_ipad){
 									$('.active-chat').attr('style', '')
