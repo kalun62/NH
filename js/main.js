@@ -581,7 +581,7 @@ jQuery(document).ready(function() {
 		const chatID = '-845315373'
 		contact = data.contact = (data.contact.toString()).replace(/[\(\)\-\+\s]/g, '')
 		const txt = `Клиент: %23${contact} %0AСообщение: ${data.text}`
-		const link = `http://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&parse_mode=html&text=${txt}`
+		const link = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&parse_mode=html&text=${txt}`
 
 		axios.post(link, formData)
 		finalWindow(form)
