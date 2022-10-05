@@ -355,8 +355,9 @@ jQuery(document).ready(function() {
 						$('.messengers_wrap.active.not_support>div').append($(`<div class="messengers write_button">
                         		<a target="_blank" title="Написать сообщение"
                             	href="#"><img src="image/write_button.svg" alt="message"></a></div>
-						`))
-						// $('.contact-form').css({'display':'flex', 'justify-content':'center', 'align-items':'center'})
+						`))		
+						
+						$('.write_button').click(openForm)
 						
 					}
 					let livechat_textarea = document.querySelector('.bx-livechat-textarea')
@@ -427,13 +428,14 @@ jQuery(document).ready(function() {
 									$('.contact-form').addClass('not_support')
 									$('.bx-im-textarea-input').blur()
 								}
+								$('.telegram_bot input').css('opacity', 1)
 							}
 
 							if(target.classList.contains('close-chat')){
 								openChat = false
 								$('.active-chat').appendTo('.main-block')
 								$('.chat-wrapper').attr('style', '')
-								$('.contact-form').removeClass('not_support')
+								$('.telegram_bot input').css('opacity', 0)
 
 								if(is_ipad){
 									$('.active-chat').attr('style', '')
@@ -509,6 +511,88 @@ jQuery(document).ready(function() {
 			$(livechat).removeClass('bx-livechat-mobile')
 		}
 	})
+
+	function openForm(e){
+		e.preventDefault()
+		$('.chat-wrapper').html($(`<form class="telegram_bot"><input name="contact" type="text" placeholder="Ваш номер телефона/E-mail">
+										<textarea name="text" placeholder="Введите сообщение"></textarea>
+										<button>отправить</button>
+									</form>`))
+		$('.chat-wrapper').addClass('open_form')
+
+		$('.telegram_bot').on('submit', function(e){
+			e.preventDefault()
+			validate()
+
+			let error = document.querySelector('.error')
+
+			!error? sendMessage() : ''
+		})
+	}
+
+	function validate(){
+		const input = document.querySelector('.telegram_bot input')
+		const textarea = document.querySelector('.telegram_bot textarea')
+			input.value === ''
+				? (input.classList.add('error'), errorLabels(input))
+				: input.classList.remove('error')
+		
+			input.addEventListener('focus', () => {
+				if(input.nextElementSibling.classList.contains('label')){
+					input.nextElementSibling.remove()
+				}
+				input.classList.remove('error')
+			})		
+		
+			if(textarea.value === ''){
+				textarea.classList.add('error')
+				errorLabels(textarea)
+			}else{
+				textarea.classList.remove('error')
+			}
+					
+		textarea.addEventListener('focus', () => {
+			if(textarea.nextElementSibling.classList.contains('label')){
+				textarea.nextElementSibling.remove()
+			}
+			textarea.classList.remove('error')
+		})		
+	}
+
+	function errorLabels(input) {
+		let errorLabel = document.createElement('label')
+		if(input.classList.contains('error')){
+			errorLabel.setAttribute('for', input.name)
+			errorLabel.classList.add('label')
+			errorLabel.innerHTML = `* Заполните поле`
+			if(!input.nextElementSibling.classList.contains('label')){
+				input.after(errorLabel)
+			}
+		}else{
+			errorLabel.remove()
+		}
+	}
+
+	function sendMessage(){
+		const form = document.querySelector('.telegram_bot')
+		const formData = new FormData(form)
+		const data = Object.fromEntries(formData.entries())
+		const token = '5538548520:AAFo3Qo8FR82uXJeygNv9Vlm7ymE8KRy06s'
+		const chatID = '-845315373'
+		contact = data.contact = (data.contact.toString()).replace(/[\(\)\-\+\s]/g, '')
+		const txt = `Клиент: %23${contact} %0AСообщение: ${data.text}`
+		const link = `http://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&parse_mode=html&text=${txt}`
+
+		axios.post(link, formData)
+		finalWindow(form)
+	}
+
+	function finalWindow(elem){
+		elem.innerHTML = `<div class="success-message">Ваша заявка принята.<br>
+													   Результат ожидайте в течении часа,<br>
+													   Вам поступит звонок, либо СМС
+						  </div>`
+	}
 
 	function resizeChat(){
 		let heightChat = $('.contact-form').height() - $('.wrap-textarea').height() - $('.messengers_wrap').height() - 80 	

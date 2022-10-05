@@ -368,6 +368,83 @@ b {
 .contact-form .bx-im-textarea{
     border: none;
 }
+.contact-form.not_support{
+    display: block;
+    padding-top: 30px;
+}
+.contact-form.not_support .chat-wrapper{
+    position: relative;
+    top: -80px;
+}
+.contact-form.not_support .messengers_wrap.not_support{
+    margin-top: 40px;
+}
+.contact-form.not_support.active-chat{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chat-wrapper.open_form{
+    width: 100%;
+    height: 100%;
+    top: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.success-message{
+    color: #fff;
+    font-size: 18px;
+}
+.telegram_bot{
+    width: 100%;
+}
+.telegram_bot input, .telegram_bot textarea{
+    width: 90%;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    padding: 15px 15px;
+    font-size: 18px;
+    outline: none;
+}
+.telegram_bot button{
+    width: 50%;
+    height: 44px;
+    background: #FFB627;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    border: 0;
+    transition: .3s;
+}
+.telegram_bot button:hover{
+    color: #2E3538;
+    box-shadow: 0px 0px 20px #FFB627;
+}
+.telegram_bot textarea{
+    font-size: 14px;
+    height: 150px;
+}
+.error{
+	border: 1px dashed red !important;
+}
+.label{
+	position: absolute;
+	left: 10%;
+	display: block;
+	color: red;
+	margin: -22px 0 10px 0;
+}
+.label[for=text]{
+    margin-top: -27px;
+}
 .messengers_wrap{
     height: 0;
     transition: all .5s ease;
@@ -1284,11 +1361,6 @@ b {
         width: 90%;
         height: 335px;
     }
-    .contact-form.not_support{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
     .display-none{
         display: none;
     }
@@ -1309,7 +1381,7 @@ b {
         top: 30px;  
     }
     .main-block .messengers_wrap.active.not_support>div:first-child{
-        padding-top: 55px;
+        padding-top: 25px;
     }
     .active-chat-button img{
         margin-left: 4px;
@@ -1381,8 +1453,15 @@ b {
         margin-top: 38px;
         margin-bottom: 20px;
     }
+    .contact-form.not_support .chat-wrapper{
+        position: relative;
+        top: 0;
+    }
     .contact-form.bx.active-chat .chat-wrapper.activeMess{
         height: calc(100% - 185px);
+    }
+    .contact-form.not_support.bx.active-chat .chat-wrapper.activeMess{
+        height: calc(100% - 44px);
     }
     .active-chat .messengers_wrap.active{
         margin-top: -15px;
@@ -1448,15 +1527,20 @@ b {
     }
     .messengers_wrap.active.not_support::before{
         content: 'Ваше устройство не поддерживается для прямого общения в чате, но вы можете воспользоваться другими вариантами:';
-        left: 0;
-        top: 150px;
+        top: 0;
         width: 70%;
         margin: 0 auto;
+        margin-bottom: 30px;
         font-size: 14px;
+    }
+    .not_support .chat-wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .not_support>div:first-child {
         width: 80%;
-        padding-top: 210px;
+        padding-top: 0;
     }
 
     #contact-form_input  {
