@@ -576,7 +576,7 @@ jQuery(document).ready(function() {
 	function sendMessage(){
 		const form = document.querySelector('.telegram_bot')
 		const formData = new FormData(form)
-		const data = Object.fromEntries(formData.entries())
+		const data = Object.fromEntries(formData)
 		const token = '5538548520:AAFo3Qo8FR82uXJeygNv9Vlm7ymE8KRy06s'
 		const chatID = '-845315373'
 		contact = data.contact = (data.contact.toString()).replace(/[\(\)\-\+\s]/g, '')
