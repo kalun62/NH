@@ -370,6 +370,7 @@ jQuery(document).ready(function() {
 						let iphone_height = window.innerHeight
 						
 						$('.bx-im-textarea-input').keydown(function(e){
+							console.log(e.keyCode);
 							if(e.keyCode == 13 && !e.shiftKey) {
 								e.preventDefault()
 								document.querySelector('.bx-im-textarea-send-button').click();
