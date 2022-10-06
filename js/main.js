@@ -347,6 +347,7 @@ jQuery(document).ready(function() {
 		let load_win = document.querySelector('.bx-livechat-loading-window')
 				if($(load_win).length === 0){
 					let livechat = document.querySelector('.bx-livechat-wrapper')
+					
 					if(!livechat){
 						$('.volume, .button-input').css('display', 'none')
 						$('.messengers_wrap, .tme, .whatsapp').addClass('active')
@@ -358,7 +359,6 @@ jQuery(document).ready(function() {
 						`))		
 						
 						$('.write_button').click(openForm)
-						
 					}
 					let livechat_textarea = document.querySelector('.bx-livechat-textarea')
 					$(livechat).css('display', 'block')
@@ -369,16 +369,6 @@ jQuery(document).ready(function() {
 					if(window.innerWidth < 768){
 						let iphone_height = window.innerHeight
 						
-// 						$('.bx-im-textarea-input').keydown(function(e){
-// // 							console.log(e.keyCode);
-// // 							if(e.keyCode == 13 && !e.shiftKey) {
-// // 								e.preventDefault()
-// // 								document.querySelector('.bx-im-textarea-send-button').click();
-// // 								$('.active-chat textarea').height(30)
-// // 								$('.chat-wrapper').attr('style', '')
-// // 							}
-// 						})
-
 						function mobileView () {
 							$(livechat).prependTo('.chat-wrapper')
 							$('.contact-form').addClass('bx active-chat')
@@ -577,7 +567,7 @@ jQuery(document).ready(function() {
 	function sendMessage(){
 		const form = document.querySelector('.telegram_bot')
 		const formData = new FormData(form)
-		const data = Object.fromEntries(formData)
+		const data = Object.fromEntries(formData.entries())
 		const token = '5538548520:AAFo3Qo8FR82uXJeygNv9Vlm7ymE8KRy06s'
 		const chatID = '-845315373'
 		contact = data.contact = (data.contact.toString()).replace(/[\(\)\-\+\s]/g, '')
