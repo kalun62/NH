@@ -577,7 +577,7 @@ jQuery(document).ready(function() {
 
 		let contact = data[0][1]
 		let text = data[1][1]
-		contact = data.contact = (data.contact.toString()).replace(/[\(\)\-\+\s]/g, '')
+		contact = (contact.toString()).replace(/[\(\)\-\+\s]/g, '')
 		const txt = `Клиент: %23${contact} %0AСообщение: ${text}`
 		const link = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&parse_mode=html&text=${txt}`
 
