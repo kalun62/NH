@@ -369,15 +369,15 @@ jQuery(document).ready(function() {
 					if(window.innerWidth < 768){
 						let iphone_height = window.innerHeight
 						
-						$('.bx-im-textarea-input').keydown(function(e){
-							console.log(e.keyCode);
-							if(e.keyCode == 13 && !e.shiftKey) {
-								e.preventDefault()
-								document.querySelector('.bx-im-textarea-send-button').click();
-								$('.active-chat textarea').height(30)
-								$('.chat-wrapper').attr('style', '')
-							}
-						})
+// 						$('.bx-im-textarea-input').keydown(function(e){
+// // 							console.log(e.keyCode);
+// // 							if(e.keyCode == 13 && !e.shiftKey) {
+// // 								e.preventDefault()
+// // 								document.querySelector('.bx-im-textarea-send-button').click();
+// // 								$('.active-chat textarea').height(30)
+// // 								$('.chat-wrapper').attr('style', '')
+// // 							}
+// 						})
 
 						function mobileView () {
 							$(livechat).prependTo('.chat-wrapper')
