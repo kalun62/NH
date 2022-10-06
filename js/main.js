@@ -567,11 +567,13 @@ jQuery(document).ready(function() {
 	function sendMessage(){
 		const form = document.querySelector('.telegram_bot')
 		const formData = new FormData(form)
-		const data = Object.fromEntries(formData.entries())
 		const token = '5538548520:AAFo3Qo8FR82uXJeygNv9Vlm7ymE8KRy06s'
 		const chatID = '-845315373'
-		contact = data.contact = (data.contact.toString()).replace(/[\(\)\-\+\s]/g, '')
-		const txt = `Клиент: %23${contact} %0AСообщение: ${data.text}`
+
+		const contact = formData.get('contact')
+		const text = formData.get('text')
+		contact = (contact.toString()).replace(/[\(\)\-\+\s]/g, '')
+		const txt = `Клиент: %23${contact} %0AСообщение: ${text}`
 		const link = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&parse_mode=html&text=${txt}`
 
 		axios.post(link, formData)
