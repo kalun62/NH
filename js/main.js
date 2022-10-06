@@ -567,20 +567,22 @@ jQuery(document).ready(function() {
 	function sendMessage(){
 		const form = document.querySelector('.telegram_bot')
 		const formData = new FormData(form) // вытащить данные из formdata
-		// const data = Object.fromEntries(formData.entries())
-
-		for(let pair of formData.entries()) {
-			console.log(pair); // где pair - это массив вида [name, value]
-		 }
+		const token = '5538548520:AAFo3Qo8FR82uXJeygNv9Vlm7ymE8KRy06s'
+		const chatID = '-845315373'
 		
-		// const token = '5538548520:AAFo3Qo8FR82uXJeygNv9Vlm7ymE8KRy06s'
-		// const chatID = '-845315373'
-		// contact = data.contact = (data.contact.toString()).replace(/[\(\)\-\+\s]/g, '')
-		// const txt = `Клиент: %23${contact} %0AСообщение: ${data.text}`
-		// const link = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&parse_mode=html&text=${txt}`
+		let data = []
+		for(let pair of formData.entries()) {
+			data.push(pair)
+		 }
 
-		// axios.post(link, formData)
-		// finalWindow(form)
+		let contact = data[0][1]
+		let text = data[1][1]
+		contact = data.contact = (data.contact.toString()).replace(/[\(\)\-\+\s]/g, '')
+		const txt = `Клиент: %23${contact} %0AСообщение: ${text}`
+		const link = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&parse_mode=html&text=${txt}`
+
+		axios.post(link, formData)
+		finalWindow(form)
 	}
 
 	function finalWindow(elem){
