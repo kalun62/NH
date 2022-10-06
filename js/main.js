@@ -568,6 +568,21 @@ jQuery(document).ready(function() {
 		const form = document.querySelector('.telegram_bot')
 		const formData = new FormData(form) // вытащить данные из formdata
 		const data = Object.fromEntries(formData.entries())
+
+		if (!formData.entries) {
+			formData.entries = function (obj) {
+			  var props = formData.keys(obj),
+				  i = props.length,
+				  resArray = new Array(i);
+			  while (i--) {
+				resArray[i] = [ownProps[i], obj[ownProps[i]]];
+			   }
+			console.log(resArray);
+			  return resArray;
+			};
+			
+		   }
+		
 		const token = '5538548520:AAFo3Qo8FR82uXJeygNv9Vlm7ymE8KRy06s'
 		const chatID = '-845315373'
 		contact = data.contact = (data.contact.toString()).replace(/[\(\)\-\+\s]/g, '')
