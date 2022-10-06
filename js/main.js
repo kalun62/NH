@@ -569,8 +569,8 @@ jQuery(document).ready(function() {
 		const formData = new FormData(form) // вытащить данные из formdata
 		const data = Object.fromEntries(formData.entries())
 
-		if (!formData.entries) {
-			formData.entries = function (obj) {
+		if (!Object.fromEntries) {
+			Object.fromEntries = function (obj) {
 			  var props = formData.keys(obj),
 				  i = props.length,
 				  resArray = new Array(i);
