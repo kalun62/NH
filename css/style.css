@@ -359,6 +359,10 @@ b {
     left: 25%;
     bottom: -49px;
 }
+.contact-form .telegram_bot .bx-im-textarea-app-file{
+    top: 10px;
+    left: 90px;
+}
 .contact-form .bx-im-textarea-box {
     padding: 0 0 0 16px;
 }
@@ -700,7 +704,9 @@ b {
     font-size: 20px;
     line-height: 38px;
 }
-
+.button-wrap{
+    position: relative;
+}
 .button{
     font-family: Play;
     font-style: normal;
@@ -1504,6 +1510,10 @@ b {
     .contact-form .bx-im-textarea-app-file{
         left: 5px;
         top: calc(50% - 12px);  
+    }
+    .contact-form .telegram_bot .bx-im-textarea-app-file{
+        top: 10px;
+        left: 50px;
     }
     .active-chat .bx-im-textarea-app-box{
         display: none;

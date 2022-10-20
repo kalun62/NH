@@ -507,7 +507,12 @@ jQuery(document).ready(function() {
 		e.preventDefault()
 		$('.chat-wrapper').html($(`<form class="telegram_bot"><input name="contact" type="text" placeholder="Ваш номер телефона/E-mail">
 										<textarea name="text" placeholder="Введите сообщение"></textarea>
-										<button>отправить</button>
+										<div class="button-wrap">
+											<label title="Отправить файл" class="bx-im-textarea-app-button bx-im-textarea-app-file">
+												<input name="file" type="file">
+											</label>
+											<button>отправить</button>
+										</div>
 									</form>`))
 		$('.chat-wrapper').addClass('open_form')
 
@@ -567,17 +572,31 @@ jQuery(document).ready(function() {
 	function sendMessage(){
 		const form = document.querySelector('.telegram_bot')
 		const formData = new FormData(form)
-		const token = '5538548520:AAFo3Qo8FR82uXJeygNv9Vlm7ymE8KRy06s'
-		const chatID = '-845315373'
+		// const token = '5538548520:AAFo3Qo8FR82uXJeygNv9Vlm7ymE8KRy06s'
+		// const chatID = '-845315373'
+		const token = '5521610248:AAFidzNsEvXLPdRMV1EUQAoQpGyUWS8pG0o'
+		const chatID = '-679506098'
 		
 		let data = {};
+		
 		formData.forEach((value, key) => data[key] = value);
-
 		let contact = (data.contact.toString()).replace(/[\(\)\-\+\s]/g, '')
-		const txt = `Клиент: %23${contact} %0AСообщение: ${data.text}`
+		const txt = `%23Клиент_${contact} %0AСообщение: ${data.text}`
+		
 		const link = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&parse_mode=html&text=${txt}`
 
 		axios.post(link, formData)
+
+		const fileInput = document.querySelector('input[name="file"]')
+		const file = fileInput.files[0]
+		const fileLink = `https://api.telegram.org/bot${token}/sendDocument?chat_id=${chatID}`
+
+		formData.append('document', file)
+
+		if(file){
+			axios.post(fileLink, formData)
+		}
+
 		finalWindow(form)
 	}
 
