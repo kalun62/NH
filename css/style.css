@@ -1476,6 +1476,9 @@ b {
     .contact-form.active-chat .bx-livechat-wrapper{
         height: 100% !important;
     }
+    .contact-form.not_support .messengers_wrap.not_support{
+        margin-top: 0;
+    }
     .active-chat .volume{
         right: unset;
         bottom: unset;
@@ -1491,6 +1494,12 @@ b {
     }
     .contact-form.bx {
         padding: 1px 0 20px 0;
+    }
+    .success-message{
+        margin-top: 50px;
+    }
+    .not_support.active-chat .success-message{
+        margin-top: 0;
     }
     .contact-form.bx .volume{
         right: 55px;
