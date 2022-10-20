@@ -589,7 +589,7 @@ jQuery(document).ready(function() {
 
 		const fileInput = document.querySelector('input[name="file"]')
 		const file = fileInput.files[0]
-		const fileLink = `https://api.telegram.org/bot${token}/sendDocument?chat_id=${chatID}`
+		const fileLink = `https://api.telegram.org/bot${token}/sendDocument?chat_id=${chatID}&caption=%23Клиент_${contact}`
 
 		formData.append('document', file)
 
